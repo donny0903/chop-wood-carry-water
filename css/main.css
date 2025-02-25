@@ -5,8 +5,25 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Colors */
+    --color-background: #E9E9E9;
+    --gray-1: #000000;
+    --gray-2: #323232;
+    --gray-3: #555555;
+    --gray-4: #8D8D8D;
+    --color-white: #FFFFFF;
+    
+    /* UI Colors */
+    --color-hover: rgba(0, 0, 0, 0.3);
+    --color-divider: #EEEEEE;
+    
+    /* Card Colors */
+    --color-dummy-background: #4A90E2;
+}
+
 body {
-    background-color: #E9E9E9;
+    background-color: var(--color-background);
 }
 
 /* Navigation */
@@ -32,7 +49,7 @@ body {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
-    color: #000000;
+    color: var(--gray-1);
     text-decoration: none;
 }
 
@@ -46,13 +63,19 @@ body {
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
     font-size: 1.5rem;
-    color: #000000;
+    color: var(--gray-2);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
 
+/* 네비게이션 효과*/
 .nav-item:hover {
     opacity: 0.7;
+}
+
+.nav-item.active {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
 }
 
 /* Hero Section */
@@ -126,7 +149,7 @@ body {
 .card-image {
     width: 100%;
     height: 240px;
-    background-color: #4A90E2; /* 더미 하늘색 */
+    background-color: var(--color-card-background);
     border-radius: 1rem;
     margin-bottom: 1rem;
 }
@@ -136,13 +159,14 @@ body {
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
+    color: var(--gray-2);
 }
 
 .card-subtitle {
     font-family: 'Outfit', sans-serif;
     font-size: 1.25rem;
     font-weight: 400;
-    color: #555555;
+    color: var(--gray-3);
     margin-bottom: 0.8rem;
 }
 
@@ -150,7 +174,7 @@ body {
     font-family: 'Outfit', sans-serif;
     font-weight: 400;
     font-size: 0.95rem;
-    color: #8d8d8d;
+    color: var(--gray-4);
 }
 
 /* Footer Section */
@@ -170,7 +194,7 @@ body {
 .footer-left p {
     font-family: 'Outfit', sans-serif;
     font-size: 1.2rem;
-    color: #000000;
+    color: var(--gray-2);
 }
 
 .footer-right {
@@ -187,4 +211,88 @@ body {
 
 .footer-right a:hover img {
     opacity: 0.7;
+}
+
+/* About 페이지 스타일 */
+.about {
+    padding-top: 8rem;  /* 상단 패딩만 유지 */
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;    /* 컨테이너에 좌우 패딩 추가 */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    margin-top: 5rem;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gray-1);
+    margin-bottom: 0.3rem;
+}
+
+.about-content h1 span {
+    font-size: 1.5rem;  /* 영문 이름보다 작게 설정 */
+    font-weight: 700;
+    margin-left: 0.2rem;
+    color: var(--gray-1);  /* 살짝 연하게 설정 */
+}
+
+.about-content h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gray-3);
+    margin-bottom: 4.5rem;
+}
+
+.about-text {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--gray-2);
+    margin-bottom: 4.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 16rem;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover img {
+    opacity: 0.7;
+}
+
+.footer-section a {
+    color: var(--gray-3);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-divider);
 }
