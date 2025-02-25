@@ -13,16 +13,17 @@
     --gray-3: #555555;
     --gray-4: #8D8D8D;
     --color-white: #FFFFFF;
+    --color-divider: #cdcdcd;
     
     /* UI Colors */
     --color-hover: rgba(0, 0, 0, 0.3);
-    --color-divider: #EEEEEE;
     
     /* Card Colors */
     --color-dummy-background: #4A90E2;
 }
 
 body {
+    font-family: 'Outfit', 'Pretendard', sans-serif;
     background-color: var(--color-background);
 }
 
@@ -46,7 +47,6 @@ body {
 }
 
 .logo {
-    font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     color: var(--gray-1);
@@ -60,7 +60,6 @@ body {
 }
 
 .nav-item {
-    font-family: 'Outfit', sans-serif;
     font-weight: 500;
     font-size: 1.5rem;
     color: var(--gray-2);
@@ -140,7 +139,6 @@ body {
     background-color: white;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
-    font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     z-index: 1;
@@ -149,13 +147,12 @@ body {
 .card-image {
     width: 100%;
     height: 240px;
-    background-color: var(--color-card-background);
+    background-color: var(--color-dummy-background);
     border-radius: 1rem;
     margin-bottom: 1rem;
 }
 
 .card-title {
-    font-family: 'Outfit', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 0.4rem;
@@ -163,7 +160,6 @@ body {
 }
 
 .card-subtitle {
-    font-family: 'Outfit', sans-serif;
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--gray-3);
@@ -171,7 +167,6 @@ body {
 }
 
 .card-caption {
-    font-family: 'Outfit', sans-serif;
     font-weight: 400;
     font-size: 0.95rem;
     color: var(--gray-4);
@@ -192,7 +187,6 @@ body {
 }
 
 .footer-left p {
-    font-family: 'Outfit', sans-serif;
     font-size: 1.2rem;
     color: var(--gray-2);
 }
@@ -242,7 +236,6 @@ body {
 }
 
 .about-content h1 {
-    font-family: 'Outfit', sans-serif;
     font-size: 2rem;
     font-weight: 600;
     color: var(--gray-1);
@@ -257,7 +250,6 @@ body {
 }
 
 .about-content h2 {
-    font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--gray-3);
@@ -265,7 +257,6 @@ body {
 }
 
 .about-text {
-    font-family: 'Pretendard', sans-serif;
     font-size: 1.25rem;
     line-height: 1.8;
     color: var(--gray-2);
@@ -295,4 +286,119 @@ body {
 
 .footer-bottom {
     border-top: 1px solid var(--color-divider);
+}
+
+/* Work Page Styles */
+.work {
+    padding: 13rem 0 4rem;
+}
+
+.work-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.work-item {
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-divider);
+}
+
+/* 마지막 아이템은 구분선 제거 */
+.work-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.work-title {
+    display: flex;
+    align-items: center;
+}
+
+.work-title h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gray-1);
+}
+
+.work-description {
+    font-size: 1.2rem;
+    color: var(--gray-3);
+    margin-bottom: 1.8rem;
+}
+
+.work-period {
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    color: var(--gray-1);
+}
+
+.chevron-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    transition: transform 0.3s ease;
+}
+
+.chevron-button.active {
+    transform: rotate(180deg);
+}
+
+
+.work-detail {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--gray-2);
+    margin-bottom: 4rem;
+}
+
+.collapsible-content {
+    display: none;
+}
+
+.collapsible-content.active {
+    display: block;
+}
+
+.work-section {
+    margin-bottom: 4rem;
+}
+
+.work-section h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gray-2);
+    margin-bottom: 1.5rem;
+}
+
+.work-section ul {
+    list-style: none;
+}
+
+.work-section li {
+    margin-bottom: 1.5rem;
+}
+
+.work-section h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--gray-2);
+    margin-bottom: 0.5rem;
+}
+
+.work-section p {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--gray-3);
+    line-height: 1.5;
 }
