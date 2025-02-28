@@ -1,0 +1,23 @@
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu-button .bar {
+    display: block;
+    width: 30px;  /* 버튼 크기에 맞게 바 너비 증가 */
+    height: 3px;
+    margin: 4px 0;  /* 바 사이 간격 조정 */
+    background-color: var(--gray-1);
+    transition: all 0.3s ease;
+} 
