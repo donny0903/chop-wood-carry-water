@@ -1,3 +1,4 @@
+// 아코디언 토글 기능
 document.querySelectorAll('.chevron-button').forEach(button => {
     button.addEventListener('click', () => {
         const workItem = button.closest('.work-item');
@@ -8,7 +9,7 @@ document.querySelectorAll('.chevron-button').forEach(button => {
     });
 });
 
-// 모바일 메뉴 관련 코드를 문서 로드 후 실행되도록 수정
+// 모바일 메뉴 토글 및 자동 닫힘 기능
 document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const navLinks = document.querySelector('.nav-links');
@@ -29,4 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+});
+
+// 현재 페이지 메뉴 하이라이트 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach(item => {
+        if (currentPath.includes('work.html') && item.textContent === 'work') {
+            item.classList.add('active');
+        } else if (currentPath.includes('about.html') && item.textContent === 'about') {
+            item.classList.add('active');
+        }
+    });
 });

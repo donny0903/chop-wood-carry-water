@@ -1,5 +1,5 @@
 /*==================================
-  1. Reset & Root Variables
+  Reset & Variables
 ==================================*/
 * {
     margin: 0;
@@ -25,7 +25,7 @@
 }
 
 /*==================================
-  2. Global Styles
+  Global
 ==================================*/
 body {
     font-family: 'Outfit', 'Pretendard', sans-serif;
@@ -33,7 +33,7 @@ body {
 }
 
 /*==================================
-  3. Navigation
+  Navigation
 ==================================*/
 .navbar {
     position: fixed;
@@ -82,11 +82,11 @@ body {
 
 .nav-item.active {
     text-decoration: underline;
-    text-underline-offset: 0.2rem;
+    text-underline-offset: 0.3rem;
 }
 
 /*==================================
-  4. Hero Section
+  Hero
 ==================================*/
 .hero {
     height: 100vh;
@@ -124,7 +124,7 @@ body {
 }
 
 /*==================================
-  5. Projects Section
+  Projects
 ==================================*/
 .projects {
     padding: 2rem 2rem;
@@ -185,7 +185,7 @@ body {
 }
 
 /*==================================
-  6. Footer Section
+  Footer
 ==================================*/
 .footer {
     padding: 4rem 0;
@@ -222,7 +222,7 @@ body {
 }
 
 /*==================================
-  7. About Page Styles
+  About Page
 ==================================*/
 .about {
     padding-top: 8rem;  /* 상단 패딩만 유지 */
@@ -306,7 +306,7 @@ body {
 }
 
 /*==================================
-  8. Work Page Styles
+  Work Page
 ==================================*/
 .work {
     padding: 13rem 0 4rem;
@@ -453,7 +453,7 @@ body {
 }
 
 /*==================================
-  9. Mobile Menu Styles
+  Mobile Menu
 ==================================*/
 .mobile-menu-button {
     display: none;
@@ -474,7 +474,7 @@ body {
 }
 
 /*==================================
-  10. Media Queries
+  Media Queries
 ==================================*/
 @media (max-width: 800px) {
 
