@@ -30,6 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 프로젝트 이미지 프리뷰 기능
+    // 이미지 파일명은 프로젝트 제목과 동일하게 저장해야 함
+    if (window.innerWidth >= 800) {  // 데스크톱에서만 실행
+        const preview = document.createElement('div');
+        preview.className = 'project-image-preview';
+        document.body.appendChild(preview);
+
+        document.querySelectorAll('.work-section h3').forEach(title => {
+            title.classList.add('has-preview');
+            
+            title.addEventListener('mouseenter', (e) => {
+                const projectName = title.textContent.trim();
+                preview.innerHTML = `<img src="../img/projects/${projectName}.png" alt="${projectName}">`;
+                preview.style.opacity = '1';
+            });
+
+            title.addEventListener('mousemove', (e) => {
+                preview.style.left = (e.clientX) + 'px';
+                preview.style.top = (e.clientY) + 'px';
+            });
+
+            title.addEventListener('mouseleave', () => {
+                preview.style.opacity = '0';
+            });
+        });
+    }
 });
 
 // 현재 페이지 메뉴 하이라이트 기능

@@ -474,7 +474,7 @@ body {
 }
 
 /*==================================
-  Media Queries
+  Media Queries - Mobile
 ==================================*/
 @media (max-width: 800px) {
 
@@ -744,6 +744,33 @@ body {
     
     .desktop-chevron {
         display: none;  /* 모바일에서는 데스크탑 chevron 숨김 */
+    }
+}
+
+/*==================================
+  Media Queries - Desktop
+==================================*/
+@media (min-width: 800px) {
+    .project-image-preview {
+        position: absolute;
+        position: fixed;
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0;
+        max-width: 400px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image-preview img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .has-preview {
+        cursor: pointer;
+        position: relative;
     }
 }
 
