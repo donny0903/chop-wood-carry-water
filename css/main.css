@@ -402,7 +402,7 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--gray-2);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
 }
 
 .work-section h2:not(:first-of-type) {  /* 첫 번째 h2를 제외한 모든 h2에 적용 */
@@ -506,7 +506,8 @@ body {
         background-color: var(--color-background);
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 20vh;
         align-items: center;
         gap: 3rem;
         opacity: 0;
@@ -538,37 +539,44 @@ body {
         overflow: hidden;
     }
 
+    .hero {
+        height: 85vh;
+    }
+
+
     .projects {
         margin-bottom: 3rem;
     }
 
     .projects-grid {
         grid-template-columns: 1fr;  /* 한 열로 변경 */
-        gap: 2rem;
+        gap: 4rem;
     }
 
     .project-card .card-title {
-        font-size: 1.2rem;  /* 제목 크기 축소 */
+        font-size: 1.3rem;
+        font-weight: 600;
         margin-bottom: 0.3rem;
     }
 
     .project-card .card-subtitle {
-        font-size: 0.9rem;  /* 부제목 크기 축소 */
+        font-size: 1rem;  /* 부제목 크기 축소 */
+        font-weight: 400;
         margin-bottom: 0.6rem;
     }
 
     .project-card .card-caption {
-        font-size: 0.8rem;  /* 날짜 텍스트 크기 축소 */
+        font-size: 0.9rem;  /* 날짜 텍스트 크기 축소 */
     }
 
     .project-card .tag {
-        font-size: 0.8rem;  /* 태그 크기 축소 */
+        font-size: 1rem;  /* 태그 크기 축소 */
         padding: 0.3rem 0.6rem;
     }
 
     .card-image {
         width: 100%;
-        height: 180px;
+        height: 220px;
         background-color: var(--color-dummy-background);
         border-radius: 1rem;
         margin-bottom: .7rem;
@@ -587,9 +595,9 @@ body {
     }
 
     .footer-right {
-        justify-content: flex-end;  /* 아이콘들을 중앙 정렬 */
+        justify-content: center;
         width: 100%;  /* 전체 너비 사용 */
-        gap: 1rem;  /* 아이콘 간격 살짝 늘림 */
+        gap: 0.7rem;  /* 아이콘 간격 살짝 늘림 */
     }
 
     /* about page */
@@ -604,7 +612,7 @@ body {
 
     .about-content h1 {
         font-size: 1.5rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0rem;
     }
     
     .about-content h1 span {
@@ -634,7 +642,7 @@ body {
     
     /* Work Page의 모바일 대응을 위한 미디어 쿼리 추가 */
     .work {
-        padding: 5rem 0;  /* 상단 패딩 축소 */
+        padding: 6rem 0;  /* 상단 패딩 축소 */
     }
 
     .work-container {
@@ -656,7 +664,7 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.1rem;
     }
 
     .work-title h1 {
@@ -680,7 +688,7 @@ body {
 
     .work-period {
         order: 3;
-        font-size: 0.85rem;
+        font-size: 1rem;
         margin-bottom: 0.8rem;
         color: var(--gray-4);
     }
@@ -690,19 +698,19 @@ body {
     }
 
     .work-detail {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.6;
         margin-bottom: 3rem;
     }
 
     /* 펼쳐지는 영역 텍스트 크기도 축소 */
     .work-section h2 {
-        font-size: 1rem;
-        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .work-section h3 {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     /* 모바일에서 글머리 기호 숨기기 */
@@ -711,17 +719,17 @@ body {
     }
 
     .work-section h3 span {
-        font-size: 0.85rem;
+        font-size: 1rem;
     }
 
     .work-section p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        color: var(--gray-4);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--gray-3);
     }
 
     .work-section li {
-        margin-bottom: 1.3rem;
+        margin-bottom: 1.7rem;
     }
 
     /* 구분선 여백 조정 */
