@@ -443,7 +443,7 @@ body {
 }
 
 .work-section li {
-    margin-bottom: 1.7rem;
+    margin-bottom: 2rem;
     position: relative;  /* 글머리 기호의 기준점 */
 }
 
@@ -469,7 +469,7 @@ body {
 .work-section p {
     font-size: 1.1rem;
     font-weight: 300;
-    color: var(--gray-4);
+    color: var(--gray-3);
     line-height: 1.75;
 }
 
@@ -667,7 +667,7 @@ body {
 
     .about-content h1 {
         font-size: 1.5rem;
-        margin-bottom: 0rem;
+        margin-bottom: 0.1rem;
     }
     
     .about-content h1 span {
@@ -687,6 +687,7 @@ body {
 
     .en-about-text {
         font-size: 1.1rem;
+        font-weight: 4300;
         line-height: 1.8;
         margin-bottom: 4rem;
     }
@@ -761,7 +762,7 @@ body {
 
     .work-detail {
         font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.7;
         margin-bottom: 3rem;
     }
 
@@ -786,7 +787,7 @@ body {
 
     .work-section p {
         font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.7;
         color: var(--gray-3);
     }
 
@@ -811,7 +812,7 @@ body {
 }
 
 /*==================================
-  Media Queries - Desktop
+  Media Queries - Desktop, 호버 이미지
 ==================================*/
 @media (min-width: 800px) {
     .project-image-preview {
@@ -838,6 +839,89 @@ body {
     .work-section h3 {
         display: inline-block; /* 글자 길이만큼만 영역 차지 */
         cursor: pointer;
+    }
+}
+
+/*==================================
+  English Work Page Specific Styles
+==================================*/
+html[lang="en"] .work-section li {
+    margin-bottom: 2.6rem;
+}
+
+html[lang="en"] .work-title h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--gray-1);
+}
+
+html[lang="en"] .work-description {
+    font-size: 1.3rem;
+    color: var(--gray-3);
+}
+
+html[lang="en"] .work-detail {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+    color: var(--gray-2);
+}
+
+html[lang="en"] .work-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    color: var(--gray-2);
+}
+
+html[lang="en"] .work-section h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--gray-2);
+}
+
+html[lang="en"] .work-section h3 span {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--gray-2);
+}
+
+html[lang="en"] .work-section p {
+    font-size: 1.23rem;
+    font-weight: 300;
+    color: var(--gray-3);
+    line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+    html[lang="en"] .work-title h1 {
+        font-size: 1.3rem;
+    }
+
+    html[lang="en"] .work-description {
+        display: none;
+    }
+
+    html[lang="en"] .work-detail {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    html[lang="en"] .work-section h2 {
+        font-size: 1rem;
+    }
+
+    html[lang="en"] .work-section h3,
+    html[lang="en"] .work-section h3 span {
+        font-size: 1.1rem;
+    }
+
+    html[lang="en"] .work-section p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--gray-3);
     }
 }
 

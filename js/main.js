@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             title.addEventListener('mouseenter', (e) => {
                 const projectName = title.textContent.trim();
-                preview.innerHTML = `<img src="../img/projects/${projectName}.png" alt="${projectName}">`;
+                // data-image-name 속성에서 이미지 파일명을 가져옴
+                const imageName = title.getAttribute('data-image-name') || projectName;
+                preview.innerHTML = `<img src="../img/projects/${imageName}.png" alt="${projectName}">`;
                 preview.style.opacity = '1';
             });
 
