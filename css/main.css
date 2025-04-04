@@ -458,14 +458,12 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--gray-2);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
-
 
 .work-section h3 span {
     font-weight: 400;  /* 설명 부분만 더 얇게 */
     color: var(--gray-2);
-    text-decoration: none;
 }
 
 .work-section p {
@@ -473,6 +471,16 @@ body {
     font-weight: 300;
     color: var(--gray-3);
     line-height: 1.75;
+}
+
+.work-section h3 a {
+    color: var(--gray-2);  /* 기존 h3와 동일한 색상 유지 */
+    text-decoration: underline;  /* 밑줄 제거 */
+    transition: opacity 0.3s ease;
+}
+
+.work-section h3 a:hover {
+    opacity: 0.7;
 }
 
 .mobile-chevron {
@@ -842,6 +850,7 @@ body {
         display: inline-block; /* 글자 길이만큼만 영역 차지 */
         cursor: pointer;
     }
+
 }
 
 /*==================================
