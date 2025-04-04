@@ -461,9 +461,11 @@ body {
     margin-bottom: 0.3rem;
 }
 
+
 .work-section h3 span {
     font-weight: 400;  /* 설명 부분만 더 얇게 */
     color: var(--gray-2);
+    text-decoration: none;
 }
 
 .work-section p {
@@ -820,7 +822,7 @@ body {
         pointer-events: none;
         z-index: 1000;
         opacity: 0;
-        max-width: 400px;
+        max-width: 800px;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
