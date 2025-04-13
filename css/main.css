@@ -375,6 +375,15 @@ body {
     color: var(--gray-1);
 }
 
+.work-title h1 a {
+    color: var(--gray-1);
+    transition: opacity 0.3s ease;
+}
+
+.work-title h1 a:hover {
+    opacity: 0.7;
+}
+
 .work-description {
     font-size: 1.2rem;
     color: var(--gray-3);
@@ -826,19 +835,22 @@ body {
 ==================================*/
 @media (min-width: 800px) {
     .project-image-preview {
-        position: absolute;
+        position: fixed;
         pointer-events: none;
         z-index: 1000;
         opacity: 0;
-        max-width: 800px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 1000px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        line-height: 0;  /* 이미지 아래 여백 제거 */
+        font-size: 0;    /* 추가적인 여백 방지 */
     }
 
     .project-image-preview img {
         width: 100%;
         height: auto;
-        border-radius: 8px;
+        border-radius: 12px;
+        display: block;
     }
 
     .has-preview {

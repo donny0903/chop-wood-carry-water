@@ -43,15 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             
             title.addEventListener('mouseenter', (e) => {
                 const projectName = title.textContent.trim();
-                // data-image-name 속성에서 이미지 파일명을 가져옴
                 const imageName = title.getAttribute('data-image-name') || projectName;
                 preview.innerHTML = `<img src="../img/projects/${imageName}.png" alt="${projectName}">`;
                 preview.style.opacity = '1';
-            });
-
-            title.addEventListener('mousemove', (e) => {
-                preview.style.left = (e.clientX) + 'px';
-                preview.style.top = (e.clientY) + 'px';
+                
+                // 화면 중앙 위치 계산 및 설정
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+                preview.style.left = '50%';
+                preview.style.top = '50%';
+                preview.style.transform = 'translate(-50%, -50%)';
             });
 
             title.addEventListener('mouseleave', () => {
