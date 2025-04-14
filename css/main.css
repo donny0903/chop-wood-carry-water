@@ -841,7 +841,7 @@ body {
         opacity: 0;
         width: 1000px;
         border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         line-height: 0;  /* 이미지 아래 여백 제거 */
         font-size: 0;    /* 추가적인 여백 방지 */
     }
