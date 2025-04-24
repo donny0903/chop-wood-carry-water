@@ -9,7 +9,7 @@
 
 :root {
     /* Colors */
-    --color-background: #E9E9E9;
+    --color-background: #ffffff;
     --gray-1: #000000;
     --gray-2: #323232;
     --gray-3: #555555;
@@ -107,7 +107,7 @@ body {
 .hero-text h1 {
     font-family: 'Libre Baskerville', serif;
     font-size: 8rem;
-    color: #ffffff;
+    color: #000000;
     white-space: nowrap;
 }
 
@@ -484,7 +484,6 @@ body {
 
 .work-section h3 a {
     color: var(--gray-2);  /* 기존 h3와 동일한 색상 유지 */
-    text-decoration: underline;  /* 밑줄 제거 */
     transition: opacity 0.3s ease;
 }
 
