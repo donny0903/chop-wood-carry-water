@@ -30,6 +30,7 @@
     
     /* Layout */
     --max-width: 1300px;
+    --container-padding: 2rem;
 }
 
 /*==================================
@@ -38,6 +39,9 @@
 body {
     font-family: 'Pretendard', sans-serif;
     background-color: var(--color-white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /*==================================
@@ -58,7 +62,7 @@ body {
     height: 84px;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--container-padding);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,12 +101,13 @@ body {
 
 .footer {
     padding: 4rem 0;
+    margin-top: auto;
 }
 
 .footer-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--container-padding);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -144,7 +149,7 @@ body {
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 1100px;
+    width: 1000px;
 }
 
 .hero-image img {
@@ -155,7 +160,7 @@ body {
 /*=======*/
 
 .projects {
-    padding: 2rem 2rem;
+    padding: 2rem var(--container-padding);
     max-width: var(--max-width);
     margin: 0 auto;
     margin-bottom: 12rem;
@@ -205,4 +210,54 @@ body {
     font-weight: 300;
     color: var(--color-500);
     line-height: 1.65;
+}
+
+/*==================================
+  about
+==================================*/
+.about {
+    padding-top: 5rem;  /* 상단 패딩만 유지 */
+}
+
+.about-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    margin-top: 5rem;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--color-900);
+    margin-bottom: 2rem;
+}
+
+.about-content h1 span {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+}
+
+.about-text {
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-500);
+    margin-bottom: 4.5rem;
 }
