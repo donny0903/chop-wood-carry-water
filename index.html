@@ -1,13 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <script>
-        // 브라우저 언어 설정에 따른 자동 리다이렉트
-        const userLang = navigator.language || navigator.userLanguage;
-        // 절대 경로에서 상대 경로로 변경
-        const redirectPath = userLang.startsWith('ko') ? './1.ko/index.html' : './2.en/index.html';
-        window.location.replace(redirectPath);
-    </script>
+    <!-- 기본설정 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product Designer Donny">
+    <meta name="keywords" content="UX/UI, Product Designer, Design, Donny, Donny Kim, Donghwan Kim">
+    <meta name="author" content="Donghwan Kim, 김동환">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon_package/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../img/favicon_package/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicon_package/favicon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon_package/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon_package/favicon-16.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Donny">
+    <meta property="og:description" content="Chop wood, carry water.">
+    <meta property="og:image" content="../img/profile.jpg">
+    <meta property="og:url" content="https://www.aboutdonny.com/index.html">
+    <!-- 소셜 미디어 추가 메타 태그 -->
+    <meta name="twitter:card" content="../img/profile.jpg">
+    <meta name="twitter:creator" content="@okid2318">
+    <!-- 보안 관련 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <!-- SEO 최적화 추가 -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.aboutdonny.com/index.html">
+    <!-- language section -->
+    <!-- <link rel="alternate" hreflang="en" href="https://www.aboutdonny.com/2.en/index.html">
+    <link rel="alternate" hreflang="ko" href="https://www.aboutdonny.com/1.ko/index.html"> -->
+    <!-- link section -->
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/main.js" defer></script>
+    <title>About Donny Kim</title>
 </head>
-</htm
+<body>
+    <!-- navbar section -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">donny</a>
+            <!-- <button class="mobile-menu-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button> -->
+            <div class="nav-links">
+                <a href="work.html" class="nav-item">work</a>
+                <a href="https://brunch.co.kr/@okid2318#articles" class="nav-item" target="_blank" rel="noopener noreferrer">blog</a>
+                <a href="about.html" class="nav-item">about</a>
+            </div>
+        </div>
+    </nav>
+    <!-- hero section -->
+    <main class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>chop wood,<br>carry water.</h1>
+            </div>
+            <div class="hero-image">
+                <img src="../img/wood.png" alt="A log of wood">
+            </div>
+        </div>
+    </main>
+    <!-- projects section -->
+    <section class="projects">
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="tag">Inspiration</div>
+                <div class="card-image"></div>
+                <h2 class="ko-card-title">모두를 위한 디자인</h2>
+                <p class="ko-card-subtitle">디지털 접근성에 대한 이야기를 합니다.</p>
+                <p class="ko-card-caption">Sep 28, 2025</p>
+            </article>
+            
+            <article class="project-card">
+                <div class="tag">Design</div>
+                <div class="card-image"></div>
+                <h2 class="ko-card-title">모두를 위한 디자인</h2>
+                <p class="ko-card-subtitle">디지털 접근성에 대한 이야기를 합니다.</p>
+                <p class="ko-card-caption">Sep 28, 2025</p>
+            </article>
+            
+            <article class="project-card">
+                <div class="tag">Tech</div>
+                <div class="card-image"></div>
+                <h2 class="ko-card-title">모두를 위한 디자인</h2>
+                <p class="ko-card-subtitle">디지털에서의 접근성, 포용성, 포괄성이 있는 미래에 대한 이야기를 합니다.</p>
+                <p class="ko-card-caption">Sep 28, 2025</p>
+            </article>
+        </div>
+    </section>
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>about donny 2025</p>
+            </div>
+            <div class="footer-right">
+                <a href="mailto:okid2318@gmail.com" rel="noopener noreferrer">
+                    <img src="../img/icon/email.svg" alt="Email">
+                </a>
+                <a href="https://brunch.co.kr/@okid2318#articles" target="_blank" rel="noopener noreferrer">
+                    <img src="../img/icon/brunch.svg" alt="brunch">
+                </a>
+                <a href="https://medium.com/@okid2318" target="_blank" rel="noopener noreferrer">
+                    <img src="../img/icon/medium.svg" alt="Medium">
+                </a>
+                <a href="https://www.linkedin.com/in/donghwan-kim-52b7371a9/" target="_blank" rel="noopener noreferrer">
+                    <img src="../img/icon/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

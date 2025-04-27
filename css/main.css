@@ -1,5 +1,5 @@
 /*==================================
-  Reset & Variables
+  reset & variables
 ==================================*/
 * {
     margin: 0;
@@ -9,33 +9,41 @@
 
 :root {
     /* Colors */
-    --color-background: #ffffff;
-    --gray-1: #000000;
-    --gray-2: #323232;
-    --gray-3: #555555;
-    --gray-4: #727272;
     --color-white: #FFFFFF;
-    --color-divider: #cdcdcd;
-    
-    /* UI Colors */
-    --color-hover: rgba(0, 0, 0, 0.3);
+    --color-030: #F5F8FA;
+    --color-050: #EFF3F5;
+    --color-080: #E4E9ED;
+    --color-100: #DAE1E6;
+    --color-200: #BEC8CF;
+    --color-250: #B1BDC4;
+    --color-300: #A3AEB5;
+    --color-350: #99A5AD;
+    --color-400: #899449;
+    --color-500: #717D85;
+    --color-600: #5C6469;
+    --color-700: #434B4F;
+    --color-800: #292F33;
+    --color-900: #12171A;
     
     /* Card Colors */
-    --color-dummy-background: #4A90E2;
+    --color-dummy: #4A90E2;
 }
 
 /*==================================
-  Global
+  global
 ==================================*/
 body {
-    font-family: 'Outfit', 'Pretendard', sans-serif;
-    background-color: var(--color-background);
+    font-family: 'Pretendard', sans-serif;
+    background-color: var(--color-white);
 }
 
 /*==================================
-  Navigation
+  top navigation & footer
 ==================================*/
 .navbar {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -45,9 +53,9 @@ body {
 
 .nav-container {
     height: 80px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 11%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,10 +63,8 @@ body {
 }
 
 .logo {
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: var(--gray-1);
     text-decoration: none;
+    color: var(--color-900);
 }
 
 .nav-links {
@@ -68,9 +74,7 @@ body {
 }
 
 .nav-item {
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--gray-2);
+    color: var(--color-900);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
@@ -85,129 +89,8 @@ body {
     text-underline-offset: 0.3rem;
 }
 
-/*==================================
-  Hero
-==================================*/
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
+/*=======*/
 
-.hero-text {
-    position: absolute;
-    z-index: 2;
-    text-align: center;
-    width: 100%;
-    transform: translate(-50%, -50%);
-}
-
-.hero-text h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-size: 8rem;
-    color: #000000;
-    white-space: nowrap;
-}
-
-.hero-image {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 700px;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-}
-
-/*==================================
-  Projects
-==================================*/
-.projects {
-    padding: 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 12rem;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.project-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    font-size: 1.25rem;
-    z-index: 1;
-}
-
-.card-image {
-    width: 100%;
-    height: 240px;
-    background-color: var(--color-dummy-background);
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-}
-
-.card-title {
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-    color: var(--gray-2);
-}
-
-.card-subtitle {
-    font-size: 1.25rem;
-    font-weight: 300;
-    color: var(--gray-3);
-    margin-bottom: 0.8rem;
-}
-
-.card-caption {
-    font-weight: 300;
-    font-size: 1rem;
-    color: var(--gray-4);
-}
-
-.ko-card-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: var(--gray-2);
-}
-
-.ko-card-subtitle {
-    font-size: 1.15rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--gray-3);
-    margin-bottom: 0.8rem;
-}
-
-.ko-card-caption {
-    font-weight: 300;
-    font-size: 1rem;
-    color: var(--gray-4);
-}
-
-/*==================================
-  Footer
-==================================*/
 .footer {
     padding: 4rem 0;
 }
@@ -222,8 +105,9 @@ body {
 }
 
 .footer-left p {
-    font-size: 1.2rem;
-    color: var(--gray-2);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
 }
 
 .footer-right {
@@ -233,717 +117,11 @@ body {
 }
 
 .footer-right img {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     transition: opacity 0.3s ease;
 }
 
 .footer-right a:hover img {
     opacity: 0.7;
 }
-
-/*==================================
-  About Page
-==================================*/
-.about {
-    padding-top: 8rem;  /* 상단 패딩만 유지 */
-}
-
-.about-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;    /* 컨테이너에 좌우 패딩 추가 */
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.profile-image {
-    width: 160px;
-    height: 160px;
-    border-radius: 100%;
-    margin-top: 5rem;
-    overflow: hidden;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-content h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--gray-1);
-    margin-bottom: 0.3rem;
-}
-
-.about-content h1 span {
-    font-size: 1.5rem;  /* 영문 이름보다 작게 설정 */
-    font-weight: 700;
-    margin-left: 0.2rem;
-    color: var(--gray-1);  /* 살짝 연하게 설정 */
-}
-
-.about-content h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--gray-3);
-    margin-bottom: 4.5rem;
-}
-
-.about-text {
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.8;
-    color: var(--gray-2);
-    margin-bottom: 4.5rem;
-}
-
-.en-about-text {
-    font-size: 1.35rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--gray-2);
-    margin-bottom: 6rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 16rem;
-}
-
-.social-links img {
-    width: 40px;
-    height: 40px;
-    transition: opacity 0.3s ease;
-}
-
-.social-links a:hover img {
-    opacity: 0.7;
-}
-
-.footer-section a {
-    color: var(--gray-3);
-}
-
-.footer-bottom {
-    border-top: 1px solid var(--color-divider);
-}
-
-/*==================================
-  Work Page
-==================================*/
-.work {
-    padding: 13rem 0 4rem;
-}
-
-.work-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.work-item {
-    margin-bottom: 4rem;
-    border-bottom: 1px solid var(--color-divider);
-}
-
-/* 마지막 아이템은 구분선 제거 */
-.work-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.work-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.work-title {
-    display: flex;
-    align-items: center;
-}
-
-.work-title h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--gray-1);
-}
-
-.work-title h1 a {
-    color: var(--gray-1);
-    transition: opacity 0.3s ease;
-}
-
-.work-title h1 a:hover {
-    opacity: 0.7;
-}
-
-.work-description {
-    font-size: 1.2rem;
-    color: var(--gray-3);
-    margin-bottom: 1.8rem;
-}
-
-.work-period {
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
-    color: var(--gray-1);
-}
-
-.work-period span:only-child {  /* 버튼이 없는 경우에만 적용 */
-    display: inline-block;
-    padding-top: 1.3rem;  /* 아래로 살짝 내림 */
-}
-
-.chevron-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.4rem;
-    transition: transform 0.3s ease;
-}
-
-.chevron-button.active {
-    transform: rotate(180deg);
-}
-
-
-.work-detail {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: var(--gray-2);
-    margin-bottom: 3rem;
-}
-
-.collapsible-content {
-    display: none;
-}
-
-.collapsible-content.active {
-    display: block;
-}
-
-.work-section {
-    margin-bottom: 4rem;
-}
-
-.work-section h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--gray-2);
-    margin-bottom: 1.8rem;
-}
-
-.work-section h2:not(:first-of-type) {  /* 첫 번째 h2를 제외한 모든 h2에 적용 */
-    margin-top: 4rem;  /* 위쪽 여백 추가 */
-}
-
-.work-section ul {
-    list-style: none;
-}
-
-.work-section li {
-    margin-bottom: 2rem;
-    position: relative;  /* 글머리 기호의 기준점 */
-}
-
-.work-section h3::before {
-    content: "•";
-    position: absolute;
-    left: -1.1rem;  /* 글머리 기호를 왼쪽으로 빼냄 */
-    color: var(--gray-2);
-}
-
-.work-section h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--gray-2);
-    margin-bottom: 0.4rem;
-}
-
-.work-section h3 span {
-    font-weight: 400;  /* 설명 부분만 더 얇게 */
-    color: var(--gray-2);
-}
-
-.work-section p {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--gray-3);
-    line-height: 1.75;
-}
-
-.work-section h3 a {
-    color: var(--gray-2);  /* 기존 h3와 동일한 색상 유지 */
-    transition: opacity 0.3s ease;
-}
-
-.work-section h3 a:hover {
-    opacity: 0.7;
-}
-
-.mobile-chevron {
-    display: none;  /* 기본적으로 모바일 chevron 숨김 */
-}
-
-.desktop-chevron {
-    display: block;  /* 기본적으로 데스크탑 chevron 표시 */
-}
-
-/*==================================
-  Mobile Menu
-==================================*/
-.mobile-menu-button {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
-}
-
-.mobile-menu-button .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--gray-1);
-    transition: all 0.3s ease;
-}
-
-/*==================================
-  Media Queries - Mobile
-==================================*/
-@media (max-width: 800px) {
-
-    .nav-container {
-        height: 70px;
-    }
-
-    .mobile-menu-button {
-        display: block;
-        position: relative;
-    }
-
-    .hero-text h1 {
-        font-size: clamp(3rem, 10vw, 3.5rem);
-    }
-
-    .hero-image {
-        width: 80%;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--color-background);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 20vh;
-        align-items: center;
-        gap: 3rem;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .nav-links.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links a {
-        font-size: 2rem;
-    }
-
-    .mobile-menu-button.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .mobile-menu-button.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .mobile-menu-button.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -8px);
-    }
-
-    .menu-open {
-        overflow: hidden;
-    }
-
-    .hero {
-        height: 85vh;
-    }
-
-
-    .projects {
-        margin-bottom: 3rem;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;  /* 한 열로 변경 */
-        gap: 4rem;
-    }
-
-    .project-card .tag {
-        font-size: 1rem;  /* 태그 크기 축소 */
-        padding: 0.3rem 0.6rem;
-    }
-
-    .card-image {
-        width: 100%;
-        height: 220px;
-        background-color: var(--color-dummy-background);
-        border-radius: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .card-title {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-        color: var(--gray-2);
-    }
-    
-    .card-subtitle {
-        font-size: 1.1rem;
-        font-weight: 400;
-        line-height: 1.35rem;
-        color: var(--gray-3);
-        margin-bottom: 0.6rem;
-    }
-    
-    .card-caption {
-        font-weight: 400;
-        font-size: 1rem;
-        color: var(--gray-4);
-    }
-
-    .ko-card-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-        margin-bottom: 0.4rem;
-        color: var(--gray-2);
-    }
-    
-    .ko-card-subtitle {
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.6;
-        color: var(--gray-3);
-        margin-bottom: 0.8rem;
-    }
-    
-    .ko-card-caption {
-        font-weight: 300;
-        font-size: 1rem;
-        color: var(--gray-4);
-    }
-
-    .footer {
-        padding: 2rem 0;
-    }
-
-    .footer-left p {
-        display: none;
-    }
-    
-    .footer-container {
-        padding: 2rem;
-    }
-
-    .footer-right {
-        justify-content: center;
-        width: 100%;  /* 전체 너비 사용 */
-        gap: 0.7rem;  /* 아이콘 간격 살짝 늘림 */
-    }
-
-    /* about page */
-    .about {
-        padding-top: 3rem;
-    }
-
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-
-    .about-content h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.1rem;
-    }
-    
-    .about-content h1 span {
-        font-size: 1.2rem;  /* 영문 이름보다 작게 설정 */
-    }
-    
-    .about-content h2 {
-        font-size: 1.2rem;
-        margin-bottom: 3rem;
-    }
-    
-    .about-text {
-        font-size: 1rem;
-        line-height: 1.8;
-        margin-bottom: 4rem;
-    }
-
-    .en-about-text {
-        font-size: 1.1rem;
-        font-weight: 4300;
-        line-height: 1.8;
-        margin-bottom: 4rem;
-    }
-    
-
-    .social-links {
-        gap: 0.6rem;
-        margin-bottom: 6rem;
-    }
-
-    .social-links img {
-        width: 35px;
-        height: 35px;
-    }
-    
-    /* Work Page의 모바일 대응을 위한 미디어 쿼리 추가 */
-    .work {
-        padding: 6rem 0;  /* 상단 패딩 축소 */
-    }
-
-    .work-container {
-        margin-top: 2rem;
-    }
-
-    .work-item {
-        margin-bottom: 3rem;  /* 아이템 간격 축소 */
-    }
-
-    /* 제목과 화살표 레이아웃 수정 */
-    .work-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .work-title {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.1rem;
-    }
-
-    .work-title h1 {
-        font-size: 1.3rem;
-    }
-
-    /* chevron 버튼을 work-title로 이동 */
-    .work-period .chevron-button {
-        display: none;  /* 날짜 옆의 버튼 숨김 */
-    }
-
-    .work-title .chevron-button {
-        display: block;  /* 제목 옆의 버튼 표시 */
-        padding: 0.3rem;
-    }
-
-    .work-title .chevron-button img {
-        width: 24px;  /* 14px에서 18px로 증가 */
-        height: 24px; /* 14px에서 18px로 증가 */
-    }
-
-    .work-period {
-        order: 3;
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-        color: var(--gray-4);
-    }
-
-    .work-description {
-        display: none;
-    }
-
-    .work-detail {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 3rem;
-    }
-
-    /* 펼쳐지는 영역 텍스트 크기도 축소 */
-    .work-section h2 {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .work-section h3 {
-        font-size: 1rem;
-    }
-
-    /* 모바일에서 글머리 기호 숨기기 */
-    .work-section h3::before {
-        display: none;
-    }
-
-    .work-section h3 span {
-        font-size: 1rem;
-    }
-
-    .work-section p {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        color: var(--gray-3);
-    }
-
-    .work-section li {
-        margin-bottom: 1.7rem;
-    }
-
-    /* 구분선 여백 조정 */
-    .work-item {
-        margin-bottom: 3rem;
-    }
-
-    /* 기본 상태 */
-    .mobile-chevron {
-        display: block;  /* 모바일에서는 모바일 chevron 표시 */
-    }
-    
-    .desktop-chevron {
-        display: none;  /* 모바일에서는 데스크탑 chevron 숨김 */
-    }
-
-}
-
-/*==================================
-  Media Queries - Desktop, 호버 이미지
-==================================*/
-@media (min-width: 800px) {
-    .project-image-preview {
-        position: fixed;
-        pointer-events: none;
-        z-index: 1000;
-        opacity: 0;
-        width: 1000px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        line-height: 0;  /* 이미지 아래 여백 제거 */
-        font-size: 0;    /* 추가적인 여백 방지 */
-    }
-
-    .project-image-preview img {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        display: block;
-    }
-
-    .has-preview {
-        cursor: pointer;
-        position: relative;
-    }
-
-    .work-section h3 {
-        display: inline-block; /* 글자 길이만큼만 영역 차지 */
-        cursor: pointer;
-    }
-
-}
-
-/*==================================
-  English Work Page Specific Styles
-==================================*/
-html[lang="en"] .work-section li {
-    margin-bottom: 2.6rem;
-}
-
-html[lang="en"] .work-title h1 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: var(--gray-1);
-}
-
-html[lang="en"] .work-description {
-    font-size: 1.3rem;
-    color: var(--gray-3);
-}
-
-html[lang="en"] .work-detail {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    margin-bottom: 3.5rem;
-    color: var(--gray-2);
-}
-
-html[lang="en"] .work-section h2 {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-weight: 500;
-    color: var(--gray-2);
-}
-
-html[lang="en"] .work-section h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: var(--gray-2);
-}
-
-html[lang="en"] .work-section h3 span {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--gray-2);
-}
-
-html[lang="en"] .work-section p {
-    font-size: 1.23rem;
-    font-weight: 300;
-    color: var(--gray-3);
-    line-height: 1.6;
-}
-
-@media (max-width: 800px) {
-    html[lang="en"] .work-title h1 {
-        font-size: 1.3rem;
-    }
-
-    html[lang="en"] .work-description {
-        display: none;
-    }
-
-    html[lang="en"] .work-detail {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-
-    html[lang="en"] .work-section h2 {
-        font-size: 1rem;
-    }
-
-    html[lang="en"] .work-section h3,
-    html[lang="en"] .work-section h3 span {
-        font-size: 1.1rem;
-    }
-
-    html[lang="en"] .work-section p {
-        font-size: 1.05rem;
-        line-height: 1.6;
-        color: var(--gray-3);
-    }
-}
-
