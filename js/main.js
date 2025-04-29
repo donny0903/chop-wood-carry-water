@@ -32,32 +32,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 프로젝트 이미지 프리뷰 기능
-    // 이미지 파일명은 프로젝트 제목과 동일하게 저장해야 함
     if (window.innerWidth >= 800) {  // 데스크톱에서만 실행
         const preview = document.createElement('div');
         preview.className = 'project-image-preview';
         document.body.appendChild(preview);
 
-        document.querySelectorAll('.work-section h3').forEach(title => {
-            title.classList.add('has-preview');
+        document.querySelectorAll('.work-body-item h3').forEach(title => {
+            const imageName = title.getAttribute('data-image-name');
             
-            title.addEventListener('mouseenter', (e) => {
-                const projectName = title.textContent.trim();
-                const imageName = title.getAttribute('data-image-name') || projectName;
-                preview.innerHTML = `<img src="../img/projects/${imageName}.png" alt="${projectName}">`;
-                preview.style.opacity = '1';
+            // 이미지 존재 여부 확인
+            if (imageName) {
+                title.classList.add('has-preview');
                 
-                // 화면 중앙 위치 계산 및 설정
-                const viewportWidth = window.innerWidth;
-                const viewportHeight = window.innerHeight;
-                preview.style.left = '50%';
-                preview.style.top = '50%';
-                preview.style.transform = 'translate(-50%, -50%)';
-            });
+                title.addEventListener('mouseenter', (e) => {
+                    preview.innerHTML = `<img src="../img/projects/${imageName}.png" alt="${title.textContent.trim()}">`;
+                    preview.style.opacity = '1';
+                    
+                    // 화면 중앙 위치 계산 및 설정
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+                    preview.style.left = '50%';
+                    preview.style.top = '50%';
+                    preview.style.transform = 'translate(-50%, -50%)';
+                });
 
-            title.addEventListener('mouseleave', () => {
-                preview.style.opacity = '0';
-            });
+                title.addEventListener('mouseleave', () => {
+                    preview.style.opacity = '0';
+                });
+            }
         });
     }
 });

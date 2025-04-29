@@ -69,6 +69,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    -webkit-backdrop-filter: blur(2.5px);
     backdrop-filter: blur(2.5px);
 }
 
@@ -119,7 +120,7 @@ body {
 .footer-left p {
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .footer-right {
@@ -257,7 +258,7 @@ body {
 }
 
 .collapsible-content.active {
-    display: block;
+    display: none;
 }
 
 /* paragraph & item divider */
@@ -268,7 +269,7 @@ body {
 }
 
 .work-body-item {
-    margin-bottom: 2.8rem;
+    margin-bottom: 2.9rem;
 }
 
 .work-body-item:last-child {
@@ -318,6 +319,20 @@ body {
 }
 
 /* body*/
+.body-teamTitleStart {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-500);
+    margin-bottom: 1.8rem;
+}
+
+.body-teamTitleEnd {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-500);
+    margin: 4rem 0 1.8rem 0;
+}
+
 .body-title {
     font-size: 1.37rem;
     font-weight: 600;
@@ -328,9 +343,8 @@ body {
 .body-title a {
     color: inherit;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: left;
     transition: opacity 0.3s ease;
 }
 
@@ -371,6 +385,32 @@ body {
     background-color: var(--color-080);
     border-radius: 4px;
     margin-left: 0rem;
+}
+
+/* preview image */
+.project-image-preview {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    line-height: 0;
+    font-size: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-image-preview img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+
+.has-preview {
+    cursor: pointer;
+    position: relative;
 }
 
 /*==================================
@@ -421,4 +461,13 @@ body {
     line-height: 1.75;
     color: var(--color-500);
     margin-bottom: 4.5rem;
+}
+
+/*==================================
+  mobile 📱
+==================================*/
+@media (max-width: 800px) {
+    .project-image-preview {
+        display: none;
+    }
 }
