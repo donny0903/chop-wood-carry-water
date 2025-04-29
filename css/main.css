@@ -219,6 +219,12 @@ body {
 .project-card {
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+    opacity: 0.8;
 }
 
 .card-image {
@@ -623,8 +629,8 @@ body {
     }
 
     .tag {
-        font-size: 1.2rem;
-        font-weight: 600;
+        font-size: 1.1rem;
+        font-weight: 500;
     }
 
     .card-title {
