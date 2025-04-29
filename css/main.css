@@ -301,7 +301,7 @@ body {
     display: none;
 }
 
-/* paragraph & item divider */
+/* container & item divider */
 .work-body {
     margin-top: 2.5rem;
     padding-top: 2.5rem;
@@ -517,6 +517,10 @@ body {
         height: 70px;
     }
 
+    .navbar {
+        font-size: 1.5rem;
+    }
+
     /* mobile menu */
     .mobile-menu-button {
         display: block;
@@ -581,7 +585,7 @@ body {
     ==================================*/
 
     .hero {
-        height: 100vh;
+        height: 85vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -591,7 +595,7 @@ body {
     .hero-image {
         position: absolute;
         z-index: 1;
-        width: 700px;
+        width: 600px;
     }
     
     .hero-image img {
@@ -638,9 +642,110 @@ body {
     work
     ==================================*/
     
+    /* container & item divider */
+    
+    .work {
+        padding: 8rem 0 8rem;
+    }
+
+    .work-divider img {
+        width: 60px;
+        margin: 0 auto;
+    }
+
+    /* header */
+    .work-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+    }
+    
+    .header-title h1 {
+        font-size: 1.3rem;
+    }
+
+    .header-period {
+        font-size: 1rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header-description {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* body */
+
+    .body-teamTitleStart {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .body-teamTitleEnd {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .body-title {
+        font-size: 1.1rem;
+    }
+
+    .body-title span {
+        font-size: 0.9rem;
+        margin-left: 0.2rem;
+    }
+
+    .body-description {
+        font-size: 1rem;
+    }
+    
+    /* body meta */
+    .link-icon {
+        width: 18px;
+    }
+
+    .body-title a .title-tag {
+        font-size: 0.75rem;
+        color: var(--color-700);
+    }
+    
     /* preview image */
     .project-image-preview {
         display: none;
+    }
+
+
+    /*==================================
+      about
+    ==================================*/
+
+    .about {
+        padding-top: 3rem;
+    }
+
+    .about-container {
+        gap: 2.8rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-content h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-content h1 span {
+        font-weight: 600;
+    }
+
+    .about-text {
+        font-size: 1.05rem;
+        margin-bottom: 0rem;
     }
 
 }
