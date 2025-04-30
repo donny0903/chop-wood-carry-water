@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title.classList.add('has-preview');
                 
                 title.addEventListener('mouseenter', (e) => {
-                    preview.innerHTML = `<img src="../img/projects/${imageName}.png" alt="${title.textContent.trim()}">`;
+                    preview.innerHTML = `<img src="../img/projects/${imageName}.jpg" alt="${title.textContent.trim()}">`;
                     preview.style.opacity = '1';
                     
                     // 화면 중앙 위치 계산 및 설정
