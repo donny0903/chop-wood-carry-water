@@ -213,7 +213,7 @@ body {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem 2.5rem;
+    gap: 4rem 3rem;
 }
 
 .project-card {
@@ -255,14 +255,14 @@ body {
 }
 
 .card-title {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--color-900);
 }
 
 .card-subtitle {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 300;
     color: var(--color-500);
     line-height: 1.65;
