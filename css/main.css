@@ -315,13 +315,13 @@ body {
 
 /* container & item divider */
 .work-body {
-    margin-top: 2.5rem;
+    margin-top: 2.2rem;
     padding-top: 2.5rem;
     border-top: 1px solid var(--color-100);
 }
 
 .work-body-item {
-    margin-bottom: 2.9rem;
+    margin-bottom: 3rem;
 }
 
 .work-body-item:last-child {
@@ -383,24 +383,24 @@ body {
 
 /* body*/
 .body-teamTitleStart {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-500);
-    margin-bottom: 1.8rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-600);
+    margin: .5rem 0 1.8rem 0;
 }
 
 .body-teamTitleEnd {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-500);
-    margin: 4rem 0 1.8rem 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-600);
+    margin: 4.5rem 0 2rem 0;
 }
 
 .body-title {
-    font-size: 1.37rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: var(--color-900);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
     display: inline-block;
 }
 
@@ -426,10 +426,10 @@ body {
 }
 
 .body-description {
-    font-size: 1.23rem;
+    font-size: 1.3rem;
     font-weight: 300;
     line-height: 1.8;
-    color: var(--color-500);
+    color: var(--color-600);
 }
 
 /* body meta */
@@ -520,10 +520,10 @@ body {
 }
 
 .about-text {
-    font-size: 1.35rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 300;
     line-height: 1.75;
-    color: var(--color-500);
+    color: var(--color-600);
     margin-bottom: 4.5rem;
 }
 
