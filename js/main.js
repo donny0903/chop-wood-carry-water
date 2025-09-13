@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     preview.style.opacity = '0';
                 });
             }
-        });
+        }); 
     }
 });
 
@@ -75,5 +75,17 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (currentPath.includes('about.html') && item.textContent === 'about') {
             item.classList.add('active');
         }
+    });
+});
+
+// href="#"인 링크 클릭 시 경고 모달 표시
+document.addEventListener('DOMContentLoaded', function() {
+    const hashLinks = document.querySelectorAll('a[href="#_work"]');
+    
+    hashLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 동작 방지
+            alert('자세한 고민 과정이 궁금하시다면 메일로 연락주세요 😄');
+        });
     });
 });
