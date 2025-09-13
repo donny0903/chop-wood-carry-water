@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // href="#"인 링크 클릭 시 경고 모달 표시
+// 임시 링크 막기 용도
 document.addEventListener('DOMContentLoaded', function() {
     const hashLinks = document.querySelectorAll('a[href="#_work"]');
     
