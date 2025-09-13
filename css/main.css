@@ -785,7 +785,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 10rem;
 }
 
 .project-image {
@@ -852,6 +852,66 @@ body {
     color: var(--color-700);
 }
 
+/* 프로젝트 바디 콘텐츠 */
+
+.project-body {
+    margin-bottom: 8rem;
+}
+
+.project-body:last-child {
+    margin-bottom: 0;
+}
+
+.content-section {
+    margin-bottom: 4rem;    
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.content-top-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--color-700);
+    margin-bottom: .6rem;
+}
+
+.content-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-900);
+    margin-bottom: 1.5rem;
+}
+
+.content-body {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--color-700);
+    line-height: 1.8;
+}
+
+.content-body p {
+    margin-bottom: 1.5rem;
+}
+
+.content-body p:last-child {
+    margin-bottom: 0;
+}
+
+.content-image-section {
+    margin-top: 4rem;
+}
+
+.content-image {
+    width: 100%;
+}
+
+.content-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
 /* 프로젝트 상세 페이지 - 모바일 */
 @media (max-width: 800px) {
     .project-header {
@@ -890,5 +950,42 @@ body {
     .project-description p {
         font-size: 1.1rem;
         line-height: 1.7;
+    }
+
+    /* 프로젝트 바디 콘텐츠 - 모바일 */
+    .project-body {
+        margin-top: 3rem;
+    }
+
+    .content-section {
+        margin-bottom: 4rem;
+    }
+
+    .content-top-title {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .content-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+
+    .content-body {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .content-body p {
+        margin-bottom: 1.2rem;
+    }
+
+    .content-image-section {
+        margin-top: 3rem;
+    }
+
+    .content-image {
+        width: 100%;
     }
 }
