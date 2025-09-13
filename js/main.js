@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
     hashLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault(); // 기본 동작 방지
-            alert('자세한 고민 과정이 궁금하시다면 메일로 연락주세요 😄');
+            alert('자세한 내용이 궁금하시다면 링크드인 또는 메일로 연락주세요 😄');
         });
     });
 });
