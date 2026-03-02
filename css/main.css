@@ -287,6 +287,39 @@ body {
     padding: 0 var(--container-padding);
 }
 
+/* work tabs */
+.work-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.work-tab {
+    border: none;
+    background-color: var(--color-080);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-900);
+    padding: 0.6rem  1.2rem 0.7rem 1.2rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.work-tab.active {
+    background-color: var(--color-900);
+    font-weight: 450;
+    color: var(--color-030);
+}
+
+.work-section {
+    display: none;
+}
+
+.work-section.is-active {
+    display: block;
+}
+
 /* chevron button */
 .chevron-button {
     background: none;

@@ -102,14 +102,50 @@ function initHashLinks() {
     });
 }
 
+// work 탭 전환 기능
+function initWorkTabs() {
+    const tabs = document.querySelectorAll('.work-tab');
+    const personalSection = document.querySelector('.work-section-personal');
+    const fieldSection = document.querySelector('.work-section-field');
+
+    if (!tabs.length || !personalSection || !fieldSection) return;
+
+    const activateTab = (mode) => {
+        tabs.forEach((tab) => {
+            const isActive = tab.dataset.tab === mode;
+            tab.classList.toggle('active', isActive);
+        });
+
+        if (mode === 'personal') {
+            personalSection.classList.add('is-active');
+            fieldSection.classList.remove('is-active');
+        } else {
+            fieldSection.classList.add('is-active');
+            personalSection.classList.remove('is-active');
+        }
+    };
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const mode = tab.dataset.tab;
+            activateTab(mode);
+        });
+    });
+
+    // 기본값: field
+    activateTab('field');
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([
         loadPartial('#topNavigation', 'components/topNavigation.html'),
         loadPartial('#footer', 'components/footer.html'),
+        loadPartial('#workTabs', 'components/workTabs.html'),
     ]);
 
     initMobileMenu();
     initProjectPreview();
     initNavHighlight();
     initHashLinks();
+    initWorkTabs();
 });
