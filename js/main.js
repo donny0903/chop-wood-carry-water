@@ -81,11 +81,21 @@ function initProjectPreview() {
 function initNavHighlight() {
     const currentPath = window.location.pathname;
     const navItems = document.querySelectorAll('.nav-item');
-    
-    navItems.forEach(item => {
-        if (currentPath.includes('work.html') && item.textContent === 'work') {
-            item.classList.add('active');
-        } else if (currentPath.includes('about.html') && item.textContent === 'about') {
+
+    let activeKey = null;
+    if (currentPath.includes('work.html')) {
+        activeKey = 'work';
+    } else if (currentPath.includes('blog.html')) {
+        activeKey = 'blog';
+    } else if (currentPath.includes('about.html')) {
+        activeKey = 'about';
+    }
+
+    if (!activeKey) return;
+
+    navItems.forEach((item) => {
+        const label = item.textContent.trim().toLowerCase();
+        if (label === activeKey) {
             item.classList.add('active');
         }
     });
