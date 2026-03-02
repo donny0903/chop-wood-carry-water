@@ -345,10 +345,15 @@ body {
 
 .collapsible-content {
     display: block;
+    overflow: hidden;
+    max-height: 2000px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .collapsible-content.active {
-    display: none;
+    max-height: 0;
+    opacity: 0;
 }
 
 /* container & item divider */
