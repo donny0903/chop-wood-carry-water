@@ -103,7 +103,7 @@ function initHashLinks() {
     });
 }
 
-// work 탭 전환 기능
+// work 탭 전환 기능 (슬라이드 애니메이션)
 function initWorkTabs() {
     const tabs = document.querySelectorAll('.work-tab');
     const personalSection = document.querySelector('.work-section-personal');
@@ -111,19 +111,31 @@ function initWorkTabs() {
 
     if (!tabs.length || !personalSection || !fieldSection) return;
 
+    let currentMode = 'field';
+
     const activateTab = (mode) => {
+        if (mode === currentMode) return;
+
+        const toPersonal = mode === 'personal';
+        const incoming = toPersonal ? personalSection : fieldSection;
+        const outgoing = toPersonal ? fieldSection : personalSection;
+
         tabs.forEach((tab) => {
             const isActive = tab.dataset.tab === mode;
             tab.classList.toggle('active', isActive);
         });
 
-        if (mode === 'personal') {
-            personalSection.classList.add('is-active');
-            fieldSection.classList.remove('is-active');
-        } else {
-            fieldSection.classList.add('is-active');
-            personalSection.classList.remove('is-active');
-        }
+        // 리셋
+        incoming.classList.remove('slide-in-from-left', 'slide-in-from-right');
+
+        // 방향에 따라 애니메이션 클래스 부여
+        incoming.classList.add(toPersonal ? 'slide-in-from-right' : 'slide-in-from-left');
+
+        // 실제 활성 상태 전환
+        incoming.classList.add('is-active');
+        outgoing.classList.remove('is-active', 'slide-in-from-left', 'slide-in-from-right');
+
+        currentMode = mode;
     };
 
     tabs.forEach((tab) => {
@@ -134,7 +146,7 @@ function initWorkTabs() {
     });
 
     // 기본값: field (Work Experience)
-    activateTab('field');
+    fieldSection.classList.add('is-active');
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
