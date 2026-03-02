@@ -55,7 +55,8 @@ function initProjectPreview() {
     preview.className = 'project-image-preview';
     document.body.appendChild(preview);
 
-    document.querySelectorAll('.work-body-item h3').forEach((title) => {
+    // 프로젝트 프리뷰 대상: 상세 리스트(h3) + 헤더 타이틀(h1)
+    document.querySelectorAll('.work-body-item h3, .work-header h1[data-image-name]').forEach((title) => {
         const imageName = title.getAttribute('data-image-name');
 
         if (imageName) {
@@ -132,8 +133,8 @@ function initWorkTabs() {
         });
     });
 
-    // 기본값: field
-    activateTab('field');
+    // 기본값: personal
+    activateTab('personal');
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
