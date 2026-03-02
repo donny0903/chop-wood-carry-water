@@ -214,6 +214,10 @@ body {
     margin-bottom: 12rem;
 }
 
+.blog-projects-wrapper {
+    margin-top: 9rem;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -567,7 +571,7 @@ body {
   about
 ==================================*/
 .about {
-    padding-top: 5rem;  /* 상단 패딩만 유지 */
+    padding-top: 5.5rem;  /* 상단 패딩만 유지 */
 }
 
 .about-container {
