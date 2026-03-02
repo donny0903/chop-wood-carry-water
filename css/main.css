@@ -183,28 +183,6 @@ body {
 /*==================================
   main
 ==================================*/
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-image {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 1000px;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-
 /* project cards */
 
 .projects {
@@ -214,8 +192,25 @@ body {
     margin-bottom: 12rem;
 }
 
-.blog-projects-wrapper {
-    margin-top: 9rem;
+.section-header {
+    max-width: var(--max-width);
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-900);
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .projects-grid {
@@ -583,6 +578,26 @@ body {
     gap: 3rem;
 }
 
+/*==================================
+  hero
+==================================*/
+.hero {
+    padding-top: 18rem;  /* 상단 패딩만 유지 */
+}
+
+.hero-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-page {
+    padding-top: 9rem;
+}
+
 .profile-image {
     width: 160px;
     height: 160px;
@@ -609,12 +624,13 @@ body {
     font-weight: 500;
 }
 
-.about-text {
-    font-size: 1.3rem;
+.about-text,
+.hero-text {
+    font-size: 1.4rem;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 2;
     color: var(--color-600);
-    margin-bottom: 4.5rem;
+    margin-bottom: 7rem;
 }
 
 /*==================================
@@ -697,26 +713,6 @@ body {
     /*==================================
      main
     ==================================*/
-
-    .hero {
-        height: 85vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-    
-    .hero-image {
-        position: absolute;
-        z-index: 1;
-        width: 600px;
-    }
-    
-    .hero-image img {
-        width: 100%;
-        height: auto;
-    }
-
     /* project cards */
 
     .projects {
@@ -843,6 +839,22 @@ body {
         gap: 2.8rem;
     }
 
+    /*==================================
+      hero
+    ==================================*/
+
+    .hero {
+        padding-top: 3rem;
+    }
+
+    .hero-container {
+        gap: 2.8rem;
+    }
+
+    .blog-page {
+        padding-top: 3rem;
+    }
+
     .profile-image {
         width: 120px;
         height: 120px;
@@ -858,7 +870,8 @@ body {
         font-weight: 600;
     }
 
-    .about-text {
+    .about-text,
+    .hero-text {
         font-size: 1.05rem;
         margin-bottom: 0rem;
     }
