@@ -133,8 +133,8 @@ function initWorkTabs() {
         });
     });
 
-    // 기본값: personal
-    activateTab('personal');
+    // 기본값: field (Work Experience)
+    activateTab('field');
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
