@@ -647,7 +647,10 @@ body {
   mobile 📱
 ==================================*/
 @media (max-width: 800px) {
-    
+    :root {
+        --container-padding: 1.25rem;
+    }
+
     /*==================================
       top navigation & mobile menu & footer
     ==================================*/
@@ -729,6 +732,14 @@ body {
         margin-bottom: 8rem;
     }
 
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
     .projects-grid {
         grid-template-columns: repeat(1, 1fr);
         gap: 1.5rem;
@@ -761,13 +772,18 @@ body {
     /*==================================
     work
     ==================================*/
-    
-    /* container & item divider */
-    
+    .work-tabs {
+        gap: 0.6rem;
+    }
+
+    .work-tab {
+        font-size: 0.92rem;
+        padding: 0.5rem 0.95rem 0.55rem 0.95rem;
+    }
+
     .work {
         padding: 8rem 0 8rem;
     }
-
 
     .work-divider img {
         width: 60px;
@@ -822,6 +838,15 @@ body {
     }
     
     /* body meta */
+    .chevron-button {
+        width: 24px;
+        height: 24px;
+    }
+
+    .chevron-button img {
+        width: 18px;
+    }
+
     .link-icon {
         width: 18px;
     }
@@ -852,8 +877,10 @@ body {
 
     .about-container,
     .hero-container {
+        margin-top: 6rem;
         gap: 2.8rem;
     }
+
 
     .profile-image {
         width: 120px;
