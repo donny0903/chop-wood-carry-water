@@ -1,6 +1,10 @@
 [
     {
         "slug": "2026_03_18",
-        "thumbnail": "../img/blog/test/test_1.jpg"
+        "subtitle": "서울특별시 용산구 서빙고로 137"
+    },
+    {
+        "slug": "2026_03_20",
+        "subtitle": "서울특별시 용산구 한강대로 일대"
     }
 ]

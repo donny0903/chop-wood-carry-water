@@ -85,7 +85,9 @@ function initNavHighlight() {
     let activeKey = null;
     if (currentPath.includes('work.html')) {
         activeKey = 'work';
-    } else if (currentPath.includes('blog')) {
+    } else if (currentPath.includes('blog_space')) {
+        activeKey = 'space';
+    } else if (currentPath.includes('blog_article')) {
         activeKey = 'blog';
     } else if (currentPath.includes('about.html')) {
         activeKey = 'about';
@@ -171,13 +173,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     initNavHighlight();
     initHashLinks();
     initWorkTabs();
-    initBlogGrid();
+    initBlogArticleGrid('blogGrid');
+    initBlogArticleGrid('indexBlogGrid');
+    initBlogSpaceGrid('spaceGrid');
+    initBlogSpaceGrid('indexSpaceGrid');
     initBlogPost();
 });
 
-// 블로그 목록 동적 생성
-async function initBlogGrid() {
-    const grid = document.getElementById('blogGrid');
+// blog_article 목록 (텍스트 리스트)
+async function initBlogArticleGrid(gridId) {
+    const grid = document.getElementById(gridId);
     if (!grid) return;
 
     try {
@@ -198,10 +203,50 @@ async function initBlogGrid() {
                 ? `${parts[0]}.${parts[1]}.${parts[2]}`
                 : post.slug;
 
+            const subtitle = post.subtitle || '';
+
+            const item = document.createElement('a');
+            item.className = 'blog-list-item';
+            item.href = `blog_article_post.html?slug=${post.slug}`;
+            item.innerHTML = `
+                <span class="blog-list-date">${date}</span>
+                <span class="blog-list-title">${title}</span>
+                <span class="blog-list-subtitle">${subtitle}</span>
+            `;
+            grid.appendChild(item);
+        }
+    } catch (e) {
+        // 로드 실패 시 조용히 무시
+    }
+}
+
+// blog_space 목록 (썸네일 카드)
+async function initBlogSpaceGrid(gridId) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    try {
+        const res = await fetch('blog_space/index.json');
+        if (!res.ok) return;
+        const posts = await res.json();
+
+        for (const post of posts) {
+            const mdRes = await fetch(`blog_space/${post.slug}.md`);
+            if (!mdRes.ok) continue;
+            const md = await mdRes.text();
+
+            const titleMatch = md.match(/^#\s+(.+)$/m);
+            const title = titleMatch ? titleMatch[1] : post.slug;
+
+            const parts = post.slug.split('_');
+            const date = parts.length === 3
+                ? `${parts[0]}.${parts[1]}.${parts[2]}`
+                : post.slug;
+
             const article = document.createElement('article');
             article.className = 'project-card';
             article.innerHTML = `
-                <a href="blog_post.html?slug=${post.slug}" class="project-card" rel="noopener noreferrer">
+                <a href="blog_space_post.html?slug=${post.slug}" class="project-card" rel="noopener noreferrer">
                     <div class="card-image">
                         <img src="${post.thumbnail}" alt="${title}">
                     </div>
@@ -216,7 +261,7 @@ async function initBlogGrid() {
     }
 }
 
-// 블로그 상세 페이지 MD 렌더링
+// 블로그 상세 페이지 MD 렌더링 (article / space 공용)
 async function initBlogPost() {
     const contentContainer = document.querySelector('.blog-post-content');
     if (!contentContainer) return;
@@ -225,6 +270,8 @@ async function initBlogPost() {
     const slug = params.get('slug');
     if (!slug) return;
 
+    const source = contentContainer.dataset.source || 'blog_article';
+
     const dateContainer = document.querySelector('.blog-post-date');
     const parts = slug.split('_');
     if (parts.length === 3) {
@@ -232,7 +279,7 @@ async function initBlogPost() {
     }
 
     try {
-        const res = await fetch(`blog_article/${slug}.md`);
+        const res = await fetch(`${source}/${slug}.md`);
         if (!res.ok) {
             contentContainer.innerHTML = '<p>글을 찾을 수 없습니다.</p>';
             return;
