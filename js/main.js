@@ -1,14 +1,3 @@
-// 아코디언 토글 기능
-document.querySelectorAll('.chevron-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const workItem = button.closest('.work-item');
-        const content = workItem.querySelector('.collapsible-content');
-        
-        button.classList.toggle('active');
-        content.classList.toggle('active');
-    });
-});
-
 // 공통 레이아웃 로더
 async function loadPartial(selector, url) {
     const container = document.querySelector(selector);
@@ -45,6 +34,22 @@ function initMobileMenu() {
             });
         });
     }
+}
+
+// work 아코디언 토글
+function initWorkAccordion() {
+    document.querySelectorAll('.chevron-button').forEach((button) => {
+        button.addEventListener('click', () => {
+            const workItem = button.closest('.work-item');
+            if (!workItem) return;
+
+            const content = workItem.querySelector('.collapsible-content');
+            if (!content) return;
+
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+        });
+    });
 }
 
 // 프로젝트 이미지 프리뷰 기능
@@ -106,9 +111,9 @@ function initNavHighlight() {
 // href="#"인 링크 클릭 시 경고 모달 표시 (임시 링크 막기 용도)
 function initHashLinks() {
     const hashLinks = document.querySelectorAll('a[href="#_work"]');
-    
-    hashLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
+
+    hashLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
             e.preventDefault(); // 기본 동작 방지
             alert('자세한 내용이 궁금하시다면 링크드인 또는 메일로 연락주세요 😄');
         });
@@ -158,7 +163,10 @@ function initWorkTabs() {
     });
 
     // 기본값: field (Work Experience)
+    tabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.tab === 'field'));
+    personalSection.classList.remove('is-active', 'slide-in-from-left', 'slide-in-from-right');
     fieldSection.classList.add('is-active');
+    fieldSection.classList.remove('slide-in-from-left', 'slide-in-from-right');
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -169,6 +177,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     ]);
 
     initMobileMenu();
+    initWorkAccordion();
     initProjectPreview();
     initNavHighlight();
     initHashLinks();
@@ -179,6 +188,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     initBlogSpaceGrid('indexSpaceGrid');
     initBlogPost();
 });
+
+function formatDateFromSlug(slug) {
+    const parts = slug.split('_');
+    return parts.length === 3 ? `${parts[0]}.${parts[1]}.${parts[2]}` : slug;
+}
+
+async function getPostTitle(post, sourceDir) {
+    if (post.title) return post.title;
+
+    try {
+        const mdRes = await fetch(`${sourceDir}/${post.slug}.md`);
+        if (!mdRes.ok) return post.slug;
+        const md = await mdRes.text();
+        const titleMatch = md.match(/^#\s+(.+)$/m);
+        return titleMatch ? titleMatch[1] : post.slug;
+    } catch (e) {
+        return post.slug;
+    }
+}
 
 // blog_article 목록 (텍스트 리스트)
 async function initBlogArticleGrid(gridId) {
@@ -191,18 +219,8 @@ async function initBlogArticleGrid(gridId) {
         const posts = await res.json();
 
         for (const post of posts) {
-            const mdRes = await fetch(`blog_article/${post.slug}.md`);
-            if (!mdRes.ok) continue;
-            const md = await mdRes.text();
-
-            const titleMatch = md.match(/^#\s+(.+)$/m);
-            const title = titleMatch ? titleMatch[1] : post.slug;
-
-            const parts = post.slug.split('_');
-            const date = parts.length === 3
-                ? `${parts[0]}.${parts[1]}.${parts[2]}`
-                : post.slug;
-
+            const title = await getPostTitle(post, 'blog_article');
+            const date = formatDateFromSlug(post.slug);
             const subtitle = post.subtitle || '';
 
             const item = document.createElement('a');
@@ -231,17 +249,8 @@ async function initBlogSpaceGrid(gridId) {
         const posts = await res.json();
 
         for (const post of posts) {
-            const mdRes = await fetch(`blog_space/${post.slug}.md`);
-            if (!mdRes.ok) continue;
-            const md = await mdRes.text();
-
-            const titleMatch = md.match(/^#\s+(.+)$/m);
-            const title = titleMatch ? titleMatch[1] : post.slug;
-
-            const parts = post.slug.split('_');
-            const date = parts.length === 3
-                ? `${parts[0]}.${parts[1]}.${parts[2]}`
-                : post.slug;
+            const title = await getPostTitle(post, 'blog_space');
+            const date = formatDateFromSlug(post.slug);
 
             const article = document.createElement('article');
             article.className = 'project-card';
@@ -273,9 +282,8 @@ async function initBlogPost() {
     const source = contentContainer.dataset.source || 'blog_article';
 
     const dateContainer = document.querySelector('.blog-post-date');
-    const parts = slug.split('_');
-    if (parts.length === 3) {
-        dateContainer.textContent = `${parts[0]}.${parts[1]}.${parts[2]}`;
+    if (dateContainer) {
+        dateContainer.textContent = formatDateFromSlug(slug);
     }
 
     try {
