@@ -85,7 +85,7 @@ function initNavHighlight() {
     let activeKey = null;
     if (currentPath.includes('work.html')) {
         activeKey = 'work';
-    } else if (currentPath.includes('blog.html')) {
+    } else if (currentPath.includes('blog')) {
         activeKey = 'blog';
     } else if (currentPath.includes('about.html')) {
         activeKey = 'about';
@@ -171,4 +171,80 @@ document.addEventListener('DOMContentLoaded', async () => {
     initNavHighlight();
     initHashLinks();
     initWorkTabs();
+    initBlogGrid();
+    initBlogPost();
 });
+
+// 블로그 목록 동적 생성
+async function initBlogGrid() {
+    const grid = document.getElementById('blogGrid');
+    if (!grid) return;
+
+    try {
+        const res = await fetch('blog_article/index.json');
+        if (!res.ok) return;
+        const posts = await res.json();
+
+        for (const post of posts) {
+            const mdRes = await fetch(`blog_article/${post.slug}.md`);
+            if (!mdRes.ok) continue;
+            const md = await mdRes.text();
+
+            const titleMatch = md.match(/^#\s+(.+)$/m);
+            const title = titleMatch ? titleMatch[1] : post.slug;
+
+            const parts = post.slug.split('_');
+            const date = parts.length === 3
+                ? `${parts[0]}.${parts[1]}.${parts[2]}`
+                : post.slug;
+
+            const article = document.createElement('article');
+            article.className = 'project-card';
+            article.innerHTML = `
+                <a href="blog_post.html?slug=${post.slug}" class="project-card" rel="noopener noreferrer">
+                    <div class="card-image">
+                        <img src="${post.thumbnail}" alt="${title}">
+                    </div>
+                    <h2 class="card-title">${title}</h2>
+                </a>
+                <p class="card-subtitle">${date}</p>
+            `;
+            grid.appendChild(article);
+        }
+    } catch (e) {
+        // 로드 실패 시 조용히 무시
+    }
+}
+
+// 블로그 상세 페이지 MD 렌더링
+async function initBlogPost() {
+    const contentContainer = document.querySelector('.blog-post-content');
+    if (!contentContainer) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    if (!slug) return;
+
+    const dateContainer = document.querySelector('.blog-post-date');
+    const parts = slug.split('_');
+    if (parts.length === 3) {
+        dateContainer.textContent = `${parts[0]}.${parts[1]}.${parts[2]}`;
+    }
+
+    try {
+        const res = await fetch(`blog_article/${slug}.md`);
+        if (!res.ok) {
+            contentContainer.innerHTML = '<p>글을 찾을 수 없습니다.</p>';
+            return;
+        }
+        const md = await res.text();
+        contentContainer.innerHTML = marked.parse(md);
+
+        const h1 = contentContainer.querySelector('h1');
+        if (h1) {
+            document.title = h1.textContent + ' — About Donny';
+        }
+    } catch (e) {
+        contentContainer.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
+    }
+}
