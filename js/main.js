@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initHashLinks();
     initWorkTabs();
     initBlogArticleGrid('blogGrid');
-    initBlogArticleGrid('indexBlogGrid');
+    initBlogArticleGrid('indexBlogGrid', 5);
     initBlogSpaceGrid('spaceGrid');
     initBlogSpaceGrid('indexSpaceGrid');
     initBlogPost();
@@ -192,6 +192,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 function formatDateFromSlug(slug) {
     const parts = slug.split('_');
     return parts.length === 3 ? `${parts[0]}.${parts[1]}.${parts[2]}` : slug;
+}
+
+function getSlugTimestamp(slug) {
+    const parts = slug.split('_');
+    if (parts.length !== 3) return 0;
+
+    const [year, month, day] = parts.map(Number);
+    if (!year || !month || !day) return 0;
+
+    return new Date(year, month - 1, day).getTime();
+}
+
+function sortPostsByDateDesc(posts) {
+    return [...posts].sort((a, b) => getSlugTimestamp(b.slug) - getSlugTimestamp(a.slug));
 }
 
 async function getPostTitle(post, sourceDir) {
@@ -209,16 +223,18 @@ async function getPostTitle(post, sourceDir) {
 }
 
 // blog_article 목록 (텍스트 리스트)
-async function initBlogArticleGrid(gridId) {
+async function initBlogArticleGrid(gridId, limit) {
     const grid = document.getElementById(gridId);
     if (!grid) return;
 
     try {
         const res = await fetch('blog_article/index.json');
         if (!res.ok) return;
-        const posts = await res.json();
+        const posts = sortPostsByDateDesc(await res.json());
 
-        for (const post of posts) {
+        const visiblePosts = Number.isInteger(limit) ? posts.slice(0, limit) : posts;
+
+        for (const post of visiblePosts) {
             const title = await getPostTitle(post, 'blog_article');
             const date = formatDateFromSlug(post.slug);
             const subtitle = post.subtitle || '';
@@ -246,11 +262,11 @@ async function initBlogSpaceGrid(gridId) {
     try {
         const res = await fetch('blog_space/index.json');
         if (!res.ok) return;
-        const posts = await res.json();
+        const posts = sortPostsByDateDesc(await res.json());
 
         for (const post of posts) {
             const title = await getPostTitle(post, 'blog_space');
-            const date = formatDateFromSlug(post.slug);
+            const subtitle = post.subtitle || '';
 
             const article = document.createElement('article');
             article.className = 'project-card';
@@ -261,7 +277,7 @@ async function initBlogSpaceGrid(gridId) {
                     </div>
                     <h2 class="card-title">${title}</h2>
                 </a>
-                <p class="card-subtitle">${date}</p>
+                <p class="card-subtitle">${subtitle}</p>
             `;
             grid.appendChild(article);
         }
