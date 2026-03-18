@@ -1135,12 +1135,20 @@ body {
     flex-direction: column;
 }
 
-.projects-no-padding {
-    padding-left: 0;
-    padding-right: 0;
+.projects .blog-list-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
-.index-blog-list {
+#indexBlogSection {
+    width: 100%;
+}
+
+#indexBlogGrid {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 0;
 }
 
@@ -1154,12 +1162,16 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.blog-list-item:first-child {
-    border-top: 1px solid var(--color-080);
+.blog-list-item:last-child {
+    border-bottom: none;
 }
 
 .blog-list-item:hover {
     opacity: 0.6;
+}
+
+#indexBlogGrid .blog-list-item {
+    width: 100%;
 }
 
 .blog-list-date {
