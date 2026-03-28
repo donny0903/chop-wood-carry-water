@@ -338,15 +338,14 @@ async function initBlogPost() {
         const md = await res.text();
         contentContainer.innerHTML = marked.parse(md);
 
-        const h1 = contentContainer.querySelector('h1');
-        if (h1) {
-            document.title = h1.textContent + ' — About Donny';
-            const titleContainer = document.querySelector('.blog-post-title');
-            if (titleContainer) {
-                titleContainer.textContent = h1.textContent;
-                h1.remove();
-            }
+        const titleContainer = document.querySelector('.blog-post-title');
+        if (titleContainer && postMeta?.title) {
+            titleContainer.textContent = postMeta.title;
+            document.title = postMeta.title + ' — About Donny';
         }
+
+        const h1 = contentContainer.querySelector('h1');
+        if (h1) h1.remove();
     } catch (e) {
         contentContainer.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
     }
