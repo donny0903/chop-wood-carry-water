@@ -2,11 +2,13 @@
     {
         "slug": "2026_03_18",
         "title": "코드의 종말",
-        "subtitle": "개발자들 정말 이대로 괜찮은 것인가?"
+        "subtitle": "개발자들 정말 이대로 괜찮은 것인가?",
+        "thumbnail": "img/blog/test/test_1.jpg"
     },
     {
         "slug": "2026_03_20",
         "title": "유가와 주식의 상반관계",
-        "subtitle": "텍사스 유가 선물 가격 100달러가 기준이었다."
+        "subtitle": "텍사스 유가 선물 가격 100달러가 기준이었다.",
+        "thumbnail": "img/blog/test/test_2.jpg"
     }
 ]

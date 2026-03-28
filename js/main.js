@@ -297,11 +297,38 @@ async function initBlogPost() {
 
     const source = contentContainer.dataset.source || 'blog_article';
 
+    // index.json에서 메타데이터 조회
+    let postMeta = null;
+    try {
+        const indexRes = await fetch(`${source}/index.json`);
+        if (indexRes.ok) {
+            const posts = await indexRes.json();
+            postMeta = posts.find(p => p.slug === slug);
+        }
+    } catch (e) {}
+
+    // hero 이미지
+    const heroImg = document.querySelector('.blog-post-hero img');
+    if (heroImg && postMeta?.thumbnail) {
+        heroImg.src = postMeta.thumbnail;
+        heroImg.alt = postMeta.title || '';
+    } else if (heroImg) {
+        heroImg.closest('.blog-post-hero').style.display = 'none';
+    }
+
+    // 날짜
     const dateContainer = document.querySelector('.blog-post-date');
     if (dateContainer) {
         dateContainer.textContent = formatDateFromSlug(slug);
     }
 
+    // 부제목
+    const subtitleContainer = document.querySelector('.blog-post-subtitle');
+    if (subtitleContainer && postMeta?.subtitle) {
+        subtitleContainer.textContent = postMeta.subtitle;
+    }
+
+    // 마크다운 렌더링
     try {
         const res = await fetch(`${source}/${slug}.md`);
         if (!res.ok) {
@@ -314,6 +341,11 @@ async function initBlogPost() {
         const h1 = contentContainer.querySelector('h1');
         if (h1) {
             document.title = h1.textContent + ' — About Donny';
+            const titleContainer = document.querySelector('.blog-post-title');
+            if (titleContainer) {
+                titleContainer.textContent = h1.textContent;
+                h1.remove();
+            }
         }
     } catch (e) {
         contentContainer.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
