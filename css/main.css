@@ -27,6 +27,9 @@
     --color-700: #434B4F;
     --color-800: #292F33;
     --color-900: #12171A;
+
+    /* Accent - Coral */
+    --coral-500: #FF6B4A;
     
     /* Layout */
     --max-width: 1300px;

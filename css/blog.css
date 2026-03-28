@@ -176,8 +176,8 @@
     font-size: 1.35rem;
     font-weight: 300;
     color: var(--color-700);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    line-height: 2;
+    margin-bottom: 2rem;
 }
 
 .blog-post-content ul,
@@ -185,8 +185,8 @@
     font-size: 1.35rem;
     font-weight: 300;
     color: var(--color-700);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    line-height: 2;
+    margin-bottom: 2rem;
     padding-left: 1.5rem;
 }
 
@@ -208,6 +208,11 @@
     margin-bottom: 0;
     color: inherit;
     font-size: inherit;
+}
+
+.blog-post-content blockquote .br-spacer {
+    display: block;
+    height: 1.4rem;
 }
 
 .blog-post-content code {
@@ -240,6 +245,14 @@
     object-fit: cover;
     border-radius: 8px;
     margin: 2rem 0;
+}
+
+.blog-post-content .work-divider img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    margin: 1rem auto;
 }
 
 /* blog post image grid */
@@ -282,6 +295,40 @@
     height: 250px;
 }
 
+/* blog post caption */
+.blog-post-content aside,
+.caption {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--color-500);
+    line-height: 1.65;
+    margin-top: 3rem;
+}
+
+.blog-post-content aside p,
+.caption p {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+    margin-bottom: 0.3rem;
+}
+
+.blog-post-content aside ul,
+.caption ul {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+    padding-left: 1.2rem;
+}
+
+.blog-post-content aside li,
+.caption li {
+    margin-bottom: 0.2rem;
+}
+
 .blog-post-content hr {
     border: none;
     border-top: 1px solid var(--color-100);
@@ -289,7 +336,7 @@
 }
 
 .blog-post-content a {
-    color: var(--color-700);
+    color: var(--coral-500);
     text-decoration: underline;
     text-underline-offset: 0.2rem;
     transition: opacity 0.3s ease;
@@ -299,9 +346,11 @@
     opacity: 0.6;
 }
 
-.blog-post-content strong {
-    font-weight: 600;
-    color: var(--color-900);
+.blog-post-content strong,
+.blog-post-content em {
+    font-weight: 500;
+    font-style: normal;
+    color: inherit;
 }
 
 /* blog post detail - mobile */
@@ -358,6 +407,11 @@
 
     .blog-post-hero img {
         height: 300px;
+    }
+
+    .blog-post-content .work-divider img {
+        width: 60px;
+        margin: 0 auto;
     }
 
     .img-row-2 img {

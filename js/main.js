@@ -351,6 +351,19 @@ async function initBlogPost() {
             a.setAttribute('target', '_blank');
             a.setAttribute('rel', 'noopener noreferrer');
         });
+
+        contentContainer.querySelectorAll('blockquote br').forEach(br => {
+            const spacer = document.createElement('span');
+            spacer.className = 'br-spacer';
+            br.replaceWith(spacer);
+        });
+
+        contentContainer.querySelectorAll('hr').forEach(hr => {
+            const divider = document.createElement('div');
+            divider.className = 'work-divider';
+            divider.innerHTML = '<img src="img/icon/divider.png" alt="divider">';
+            hr.replaceWith(divider);
+        });
     } catch (e) {
         contentContainer.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
     }
