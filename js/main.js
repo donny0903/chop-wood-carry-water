@@ -346,6 +346,11 @@ async function initBlogPost() {
 
         const h1 = contentContainer.querySelector('h1');
         if (h1) h1.remove();
+
+        contentContainer.querySelectorAll('a').forEach(a => {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+        });
     } catch (e) {
         contentContainer.innerHTML = '<p>글을 불러오는 중 오류가 발생했습니다.</p>';
     }
