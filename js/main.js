@@ -307,6 +307,53 @@ async function initBlogPost() {
         }
     } catch (e) {}
 
+    // SEO 메타 태그 동적 업데이트
+    if (postMeta) {
+        const title = postMeta.title || '';
+        const subtitle = postMeta.subtitle || '';
+        const date = formatDateFromSlug(slug);
+        const baseUrl = 'https://www.aboutdonny.com';
+        const pageFile = source === 'blog_space' ? 'blog_space_post.html' : 'blog_article_post.html';
+        const fullUrl = `${baseUrl}/${pageFile}?slug=${slug}`;
+        const imageUrl = postMeta.thumbnail ? `${baseUrl}/${postMeta.thumbnail}` : `${baseUrl}/img/profile.jpg`;
+
+        document.title = `${title} — About Donny`;
+
+        const setMeta = (attr, key, value) => {
+            const el = document.querySelector(`meta[${attr}="${key}"]`);
+            if (el) el.setAttribute('content', value);
+        };
+
+        setMeta('name', 'description', subtitle || title);
+        setMeta('property', 'og:title', title);
+        setMeta('property', 'og:description', subtitle);
+        setMeta('property', 'og:image', imageUrl);
+        setMeta('property', 'og:url', fullUrl);
+        setMeta('name', 'twitter:card', 'summary_large_image');
+
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) canonical.setAttribute('href', fullUrl);
+
+        // JSON-LD 구조화 데이터
+        const jsonLd = {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: title,
+            description: subtitle,
+            image: imageUrl,
+            datePublished: slug.replace(/_/g, '-'),
+            url: fullUrl,
+            author: {
+                '@type': 'Person',
+                name: 'Donghwan Kim'
+            }
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(jsonLd);
+        document.head.appendChild(script);
+    }
+
     // hero 이미지
     const heroImg = document.querySelector('.blog-post-hero img');
     if (heroImg && postMeta?.thumbnail) {
@@ -341,7 +388,6 @@ async function initBlogPost() {
         const titleContainer = document.querySelector('.blog-post-title');
         if (titleContainer && postMeta?.title) {
             titleContainer.textContent = postMeta.title;
-            document.title = postMeta.title + ' — About Donny';
         }
 
         const h1 = contentContainer.querySelector('h1');
