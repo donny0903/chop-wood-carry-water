@@ -337,8 +337,7 @@
 
 .blog-post-content a {
     color: var(--coral-500);
-    text-decoration: underline;
-    text-underline-offset: 0.2rem;
+    text-decoration: none;
     transition: opacity 0.3s ease;
 }
 
@@ -403,6 +402,12 @@
 
     .blog-post-content blockquote {
         font-size: 1rem;
+    }
+
+    .blog-post-content aside,
+    .caption {
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .blog-post-hero img {
