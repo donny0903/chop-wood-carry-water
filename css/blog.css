@@ -261,6 +261,18 @@
     margin: 1rem auto;
 }
 
+/*
+  마크다운에서 가장자리 1px 라인을 쓰고 싶을 때 래퍼에 class="blog-img-line" 추가.
+  예: <div class="blog-img-line img-row-3">...</div>
+*/
+.blog-post-content .blog-img-line img {
+    box-shadow: 0 0 0 1px var(--color-080);
+}
+
+.blog-post-content .blog-img-line .work-divider img {
+    box-shadow: none;
+}
+
 /* blog post image grid */
 .img-row-2 {
     display: grid;
