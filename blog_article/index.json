@@ -4,13 +4,15 @@
         "title": "As a Designer",
         "subtitle": "Sir Jony Ive's 2021 CCA Commencement",
         "thumbnail": "img/blog_article/2025_04_24/1.png",
+        "thumbnail_alt": "Sir Jony Ive",
         "tags": ["Design", "Inspiration"]
     },
     {
-        "slug": "2026_03_20",
-        "title": "유가와 주식의 상반관계",
-        "subtitle": "텍사스 유가 선물 가격 100달러가 기준이었다.",
-        "thumbnail": "img/blog/test/test_2.jpg",
-        "tags": ["Tech"]
+        "slug": "2026_04_02",
+        "title": "시대적 운",
+        "subtitle": "시대적 흐름과 함께하기",
+        "thumbnail": "img/blog_article/2026_04_02/1.png",
+        "thumbnail_alt": "Indeed Job Graph",
+        "tags": ["Inspiration", "Thinking"]
     }
 ]

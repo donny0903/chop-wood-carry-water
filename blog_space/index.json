@@ -1,8 +1,10 @@
 [
     {
-        "slug": "2026_03_18",
-        "title": "국립중앙박물관",
-        "thumbnail": "img/blog/test/test_1.jpg",
-        "subtitle": "사선으로 들어오는 아름다운 빛"
+        "slug": "2026_04_03",
+        "title": "국립현대미술관 서울 도서관",
+        "subtitle": "평평하고 따뜻한 빛",
+        "thumbnail": "img/blog_space/2026_04_03/1.jpeg",
+        "thumbnail_alt": "National Museum of Contemporary Art, Seoul Library",
+        "tags": ["Seoul"]
     }
 ]

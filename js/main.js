@@ -1,3 +1,34 @@
+// 로컬 라이브 리로드 시 스크롤 위치 유지 (프로덕션·배포 호스트에서는 비활성)
+function isLocalDevHost() {
+    const h = window.location.hostname;
+    return h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+}
+
+function devScrollStorageKey() {
+    return 'devScrollY:' + window.location.pathname + window.location.search;
+}
+
+function saveDevScrollPosition() {
+    if (!isLocalDevHost()) return;
+    try {
+        sessionStorage.setItem(devScrollStorageKey(), String(Math.round(window.scrollY)));
+    } catch (e) {}
+}
+
+function restoreDevScrollPosition() {
+    if (!isLocalDevHost()) return;
+    let y;
+    try {
+        const raw = sessionStorage.getItem(devScrollStorageKey());
+        if (raw === null) return;
+        y = parseInt(raw, 10);
+        if (Number.isNaN(y)) return;
+    } catch (e) {
+        return;
+    }
+    window.scrollTo(0, y);
+}
+
 // 공통 레이아웃 로더
 async function loadPartial(selector, url) {
     const container = document.querySelector(selector);
@@ -182,12 +213,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     initNavHighlight();
     initHashLinks();
     initWorkTabs();
-    initBlogArticleGrid('blogGrid');
-    initBlogArticleGrid('indexBlogGrid', 5);
-    initBlogSpaceGrid('spaceGrid');
-    initBlogSpaceGrid('indexSpaceGrid');
-    initBlogPost();
+    await Promise.all([
+        initBlogArticleGrid('blogGrid'),
+        initBlogArticleGrid('indexBlogGrid', 5),
+        initBlogSpaceGrid('spaceGrid'),
+        initBlogSpaceGrid('indexSpaceGrid'),
+        initBlogPost(),
+    ]);
+    restoreDevScrollPosition();
 });
+
+if (isLocalDevHost()) {
+    window.addEventListener('pagehide', saveDevScrollPosition);
+    window.addEventListener('load', () => {
+        restoreDevScrollPosition();
+    });
+}
 
 function formatDateFromSlug(slug) {
     const parts = slug.split('_');
