@@ -14,5 +14,13 @@
         "thumbnail": "img/blog_article/2026_04_02/1.png",
         "thumbnail_alt": "Indeed Job Graph",
         "tags": ["Inspiration", "Thinking"]
+    },
+    {
+        "slug": "2026_04_09",
+        "title": "야쿠르트 스왈로즈를 응원합니다",
+        "subtitle": "긴 방황 끝에 NPB로.",
+        "thumbnail": "img/blog_article/2026_04_09/1.jpeg",
+        "thumbnail_alt": "yakult swallows, Takahiro Ikeyama",
+        "tags": ["Inspiration", "Thinking"]
     }
 ]
