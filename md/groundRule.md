@@ -1,6 +1,6 @@
 
 1. summary
-- agent와 소통하는 규칙을 정의하빈다.
+- agent와 소통하는 규칙을 정의합니다.
 
 2. language
 - 답변은 한국어(korean)을 기본으로 합니다.
