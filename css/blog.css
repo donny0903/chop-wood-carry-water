@@ -69,17 +69,16 @@
 /* blog list - mobile */
 @media (max-width: 800px) {
     .blog-list-item {
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
-            "title date"
-            "subtitle date";
+            "title"
+            "subtitle";
         row-gap: 0.2rem;
-        padding: 1.2rem 0;
+        padding: 1.4rem 0;
     }
 
     .blog-list-date {
-        font-size: 1rem;
-        font-weight: 400;
+        display: none;
     }
 
     .blog-list-title {
@@ -429,8 +428,8 @@
     .blog-post-content p,
     .blog-post-content ul,
     .blog-post-content ol {
-        font-size: 1rem;
-        line-height: 1.7;
+        font-size: 1.05rem;
+        line-height: 1.8;
     }
 
     .blog-post-content blockquote {

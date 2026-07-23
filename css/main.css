@@ -726,6 +726,10 @@ body {
         margin-bottom: 0;
     }
 
+    .page-index .projects:last-of-type {
+        margin-bottom: 6rem;
+    }
+
     .section-header {
         margin-bottom: 1.5rem;
     }
@@ -792,7 +796,7 @@ body {
     .work-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.1rem;
+        gap: 0.4rem;
     }
     
     .header-title h1 {
