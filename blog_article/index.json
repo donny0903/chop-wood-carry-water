@@ -8,13 +8,14 @@
         "tags": ["Design", "Inspiration"]
     },
     {
-        "slug": "2026_04_02",
-        "title": "시대적 운",
-        "subtitle": "시대적 흐름과 함께하기.",
-        "thumbnail": "img/blog_article/2026_04_02/1.png",
-        "thumbnail_alt": "Indeed Job Graph",
-        "tags": ["Inspiration", "Thinking"]
-    },
+        "slug": "2026_01_15",
+        "title": "인생은 땅따먹기",
+        "subtitle": "할머니 장례식에서 어느 목사님의 말.",
+        "thumbnail": "",
+        "thumbnail_alt": "",
+        "tags": ["Retrospective", "Thinking"]
+    }
+    ,
     {
         "slug": "2026_04_09",
         "title": "야쿠르트 스왈로즈를 응원합니다",
