@@ -121,8 +121,6 @@ function initNavHighlight() {
     let activeKey = null;
     if (currentPath.includes('work.html')) {
         activeKey = 'work';
-    } else if (currentPath.includes('blog_space')) {
-        activeKey = 'space';
     } else if (currentPath.includes('blog_article')) {
         activeKey = 'blog';
     } else if (currentPath.includes('about.html')) {
@@ -216,8 +214,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([
         initBlogArticleGrid('blogGrid'),
         initBlogArticleGrid('indexBlogGrid', 5),
-        initBlogSpaceGrid('spaceGrid'),
-        initBlogSpaceGrid('indexSpaceGrid'),
+        // initBlogSpaceGrid('spaceGrid'),
+        // initBlogSpaceGrid('indexSpaceGrid'),
         initBlogPost(),
     ]);
     restoreDevScrollPosition();
@@ -296,36 +294,36 @@ async function initBlogArticleGrid(gridId, limit) {
 }
 
 // blog_space 목록 (썸네일 카드)
-async function initBlogSpaceGrid(gridId) {
-    const grid = document.getElementById(gridId);
-    if (!grid) return;
-
-    try {
-        const res = await fetch('blog_space/index.json');
-        if (!res.ok) return;
-        const posts = sortPostsByDateDesc(await res.json());
-
-        for (const post of posts) {
-            const title = await getPostTitle(post, 'blog_space');
-            const subtitle = post.subtitle || '';
-
-            const article = document.createElement('article');
-            article.className = 'project-card';
-            article.innerHTML = `
-                <a href="blog_space_post.html?slug=${post.slug}" class="project-card" rel="noopener noreferrer">
-                    <div class="card-image">
-                        <img src="${post.thumbnail}" alt="${title}">
-                    </div>
-                    <h2 class="card-title">${title}</h2>
-                </a>
-                <p class="card-subtitle">${subtitle}</p>
-            `;
-            grid.appendChild(article);
-        }
-    } catch (e) {
-        // 로드 실패 시 조용히 무시
-    }
-}
+// async function initBlogSpaceGrid(gridId) {
+//     const grid = document.getElementById(gridId);
+//     if (!grid) return;
+//
+//     try {
+//         const res = await fetch('blog_space/index.json');
+//         if (!res.ok) return;
+//         const posts = sortPostsByDateDesc(await res.json());
+//
+//         for (const post of posts) {
+//             const title = await getPostTitle(post, 'blog_space');
+//             const subtitle = post.subtitle || '';
+//
+//             const article = document.createElement('article');
+//             article.className = 'project-card';
+//             article.innerHTML = `
+//                 <a href="blog_space_post.html?slug=${post.slug}" class="project-card" rel="noopener noreferrer">
+//                     <div class="card-image">
+//                         <img src="${post.thumbnail}" alt="${title}">
+//                     </div>
+//                     <h2 class="card-title">${title}</h2>
+//                 </a>
+//                 <p class="card-subtitle">${subtitle}</p>
+//             `;
+//             grid.appendChild(article);
+//         }
+//     } catch (e) {
+//         // 로드 실패 시 조용히 무시
+//     }
+// }
 
 // 블로그 상세 페이지 MD 렌더링 (article / space 공용)
 async function initBlogPost() {
