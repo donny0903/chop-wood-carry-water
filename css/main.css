@@ -48,6 +48,19 @@ body {
     overflow-x: hidden;
 }
 
+/* desktop default zoom (mimics browser Cmd- ~2 steps) */
+@media (min-width: 801px) {
+    body {
+        zoom: 0.8;
+    }
+}
+
+/* iPhone HDR 사진(게인 맵)이 SDR 백색보다 밝아지지 않도록 제한 */
+img,
+video {
+    dynamic-range-limit: standard;
+}
+
 /*==================================
   desktop 🖥️
 ==================================*/
