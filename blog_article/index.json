@@ -31,5 +31,13 @@
         "thumbnail": "img/blog_article/2026_06_01/2.jpg",
         "thumbnail_alt": "Ernest Ansermet",
         "tags": ["Inspiration", "Thinking"]
+    },
+    {
+        "slug": "2026_07_13",
+        "title": "A workforce splitting in two",
+        "subtitle": "Tech Worker Sentiment Survey 2026",
+        "thumbnail": "img/blog_article/2026_07_13/0.jpg",
+        "thumbnail_alt": "Tech Worker Sentiment Survey 2026",
+        "tags": ["Tech", "Thinking"]
     }
 ]
